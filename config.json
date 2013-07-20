@@ -1,0 +1,9 @@
+{
+    "hostUrl": "http://localhost/",
+    "secret": "hammer on the keyboard",
+    "mongo_url": "mongodb://localhost/mwc_dev",
+    "redis": {"host": "localhost", "port": 6379},
+    "spine": {
+        "domains": ["someTasks"]
+    }
+}

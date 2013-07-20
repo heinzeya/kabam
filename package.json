@@ -1,0 +1,31 @@
+{
+  "name": "mwc_meta",
+  "version": "0.0.1",
+  "description": "Meta repository to do unit and integration tests on all parts of mwc_core application.",
+  "main": "index.js",
+  "scripts": {
+      "start": "node index.js",
+      "test": "./node_modules/.bin/vows --spec -v mwc_core.test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/mywebclass/mwc_meta.git"
+  },
+  "keywords": [
+    "mwc",
+    "mwc_core",
+    "meta"
+  ],
+  "author": "Anatolij Ostroumov",
+  "license": "MIT",
+  "dependencies": {
+     "mwc_core": "git+ssh://git@github.com:mywebclass/mwc_core.git",
+     "mwc_plugin_example": "git+ssh://git@github.com:mywebclass/mwc_plugin_example.git",
+     "mwc_plugin_spine": "git+ssh://git@github.com:mywebclass/mwc_plugin_spine.git",
+     "mocha":"*",
+     "vows":"*"
+  },
+  "bugs": {
+    "url": "https://github.com/mywebclass/mwc_meta/issues"
+  }
+}
