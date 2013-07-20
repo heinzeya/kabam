@@ -4,8 +4,8 @@
   "description": "Meta repository to do unit and integration tests on all parts of mwc_core application.",
   "main": "index.js",
   "scripts": {
-      "start": "node index.js",
-      "test": "./node_modules/.bin/vows --spec -v mwc_core.test.js"
+    "start": "node index.js",
+    "test": "./node_modules/.bin/vows --spec -v mwc_core.test.js"
   },
   "repository": {
     "type": "git",
@@ -19,13 +19,17 @@
   "author": "Anatolij Ostroumov",
   "license": "MIT",
   "dependencies": {
-     "mwc_core": "git+ssh://git@github.com:mywebclass/mwc_core.git",
-     "mwc_plugin_example": "git+ssh://git@github.com:mywebclass/mwc_plugin_example.git",
-     "mwc_plugin_spine": "git+ssh://git@github.com:mywebclass/mwc_plugin_spine.git",
-     "mocha":"*",
-     "vows":"*"
+    "mwc_core": "git+ssh://git@github.com:mywebclass/mwc_core.git",
+    "mwc_plugin_example": "git+ssh://git@github.com:mywebclass/mwc_plugin_example.git",
+    "mwc_plugin_spine": "git+ssh://git@github.com:mywebclass/mwc_plugin_spine.git",
+    "mocha": "*",
+    "vows": "*"
   },
   "bugs": {
     "url": "https://github.com/mywebclass/mwc_meta/issues"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "grunt-contrib-jshint": "~0.6.0"
   }
 }
