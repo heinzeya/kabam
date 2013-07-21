@@ -27,13 +27,13 @@ module.exports = function(grunt) {
         options: {
           reporter: 'spec'
         },
-        src: '**/*.test.js'
+        src: '*.test.js'
       },
       ci: {
         options: {
-          reporter: 'xunit'
+          reporter: 'spec'
         },
-        src: '**/*.test.js'
+        src: '*.test.js'
       }
 
     }
@@ -44,6 +44,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-vows');
 
   grunt.registerTask('test', 'vows:all');
+  grunt.registerTask('lint', 'jshint:all');
   // Default task.
   grunt.registerTask('default', ['jshint:all']);
 
