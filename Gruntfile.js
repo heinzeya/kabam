@@ -1,4 +1,4 @@
-module.exports = function(grunt) {
+module.exports = function (grunt) {
 
   // Project configuration.
   grunt.initConfig({
@@ -7,11 +7,8 @@ module.exports = function(grunt) {
       options: {
         jshintrc: '.jshintrc'
       },
-      gruntfile: {
-        src: 'Gruntfile.js'
-      },
       all: {
-        src: ['*.js']
+        src: ['Gruntfile.js', 'index.js']
       },
       ci: {
         options: {
@@ -22,30 +19,46 @@ module.exports = function(grunt) {
         src: '<%= jshint.all.src %>'
       }
     },
-    vows: {
+    mochacov: {
       all: {
         options: {
-          reporter: 'spec'
+          reporter: 'spec',
+          require: ['should']
         },
-        src: '*.test.js'
+        src: [
+          'node_modules/mwc_core/test/**/*.js',
+          'node_modules/mwc_plugin_example/test/**/*.js',
+          'node_modules/mwc_plugin_spine/test/**/*.js'
+        ]
       },
       ci: {
         options: {
-          reporter: 'spec'
+          reporter: 'html-cov',
+          require: ['should']
         },
-        src: '*.test.js'
+        src: [
+          'node_modules/mwc_core/test/**/*.js',
+          'node_modules/mwc_plugin_example/test/**/*.js',
+          'node_modules/mwc_plugin_spine/test/**/*.js'
+        ]
       }
-
+    },
+    watch: {
+      gruntfile: {
+        files: '<%= jshint.gruntfile.src %>',
+        tasks: ['jshint:gruntfile']
+      }
     }
   });
 
   // These plugins provide necessary tasks.
   grunt.loadNpmTasks('grunt-contrib-jshint');
-  grunt.loadNpmTasks('grunt-vows');
+  grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-mocha-cov');
 
-  grunt.registerTask('test', 'vows:all');
-  grunt.registerTask('lint', 'jshint:all');
+  // Tasks
+  grunt.registerTask('test', ['mochacov']);
   // Default task.
-  grunt.registerTask('default', ['jshint:all']);
+  grunt.registerTask('default', ['jshint', 'test']);
 
 };

@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "test": "./node_modules/.bin/mocha --reporter spec",
+    "test": "./node_modules/.bin/grunt test",
     "blanket": { "pattern": ["index.js", "models/**/*.js", "public/**/*.js", "routes/**/*.js"] }
   },
   "repository": {
