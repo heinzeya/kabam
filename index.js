@@ -1,12 +1,11 @@
-var mwc_core = require('mwc_core');
+var mwcCore = require('mwc_core');
 //setting up the config
-var MWC = new mwc_core(require('./config.json'));
+var MWC = new mwcCore(require('./config.json').development);
 
-//binding application to port
-MWC.app.listen(MWC.app.get('port'), function () {
-    console.log("MWC_core server listening on port " + MWC.app.get('port'));
-});
+MWC.usePlugin('mwc_plugin_example');
+MWC.usePlugin('mwc_plugin_spine');
 
+MWC.listen(process.env.PORT || 3000);
 //listening of MWC events. 'Coocoo!' is emmited by mwc_plugin_example every 5 seconds
 MWC.on('Coocoo!',function(message){
     console.log('Coocoo! Coocoo! '+message);

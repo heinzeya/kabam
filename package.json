@@ -1,11 +1,12 @@
 {
   "name": "mwc_meta",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Meta repository to do unit and integration tests on all parts of mwc_core application.",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "test": "./node_modules/.bin/vows --spec -v mwc_core.test.js"
+    "test": "./node_modules/.bin/mocha --reporter spec",
+    "blanket": { "pattern": ["index.js", "models/**/*.js", "public/**/*.js", "routes/**/*.js"] }
   },
   "repository": {
     "type": "git",
@@ -19,18 +20,21 @@
   "author": "Anatolij Ostroumov",
   "license": "MIT",
   "dependencies": {
-    "mwc_core": "git+ssh://git@github.com:mywebclass/mwc_core.git",
-    "mwc_plugin_example": "git+ssh://git@github.com:mywebclass/mwc_plugin_example.git",
-    "mwc_plugin_spine": "git+ssh://git@github.com:mywebclass/mwc_plugin_spine.git",
-    "mocha": "*",
-    "vows": "*"
+    "mwc_core": "git+https://github.com/mywebclass/mwc_core.git",
+    "mwc_plugin_example": "git+https://github.com/mywebclass/mwc_plugin_example.git",
+    "mwc_plugin_spine": "git+https://github.com/mywebclass/mwc_plugin_spine.git"
   },
   "bugs": {
     "url": "https://github.com/mywebclass/mwc_meta/issues"
   },
   "devDependencies": {
     "grunt": "~0.4.1",
+    "grunt-cli": "*",
+    "grunt-contrib-watch": "~0.5.0",
     "grunt-contrib-jshint": "~0.6.0",
-    "grunt-vows": "~0.4.0"
+    "should": "~1.2.2",
+    "mocha": "~1.12.0",
+    "grunt-mocha-cov": "0.0.7",
+    "blanket": "~1.1.5"
   }
 }
