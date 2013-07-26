@@ -6,5 +6,8 @@ node_js:
   - 0.11
 
 services:
-  - mongodb
   - redis-server
+  - mongodb
+
+notifications:
+  email: false
