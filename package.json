@@ -22,7 +22,8 @@
   "dependencies": {
     "mwc_core": "git+https://github.com/mywebclass/mwc_core.git",
     "mwc_plugin_example": "git+https://github.com/mywebclass/mwc_plugin_example.git",
-    "mwc_plugin_spine": "git+https://github.com/mywebclass/mwc_plugin_spine.git"
+    "mwc_plugin_spine": "git+https://github.com/mywebclass/mwc_plugin_spine.git",
+    "mwc_plugin_hogan_express": "git+https://github.com/mywebclass/mwc_plugin_hogan_express.git"
   },
   "bugs": {
     "url": "https://github.com/mywebclass/mwc_meta/issues"
