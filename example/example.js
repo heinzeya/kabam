@@ -20,5 +20,10 @@ var kabam = Kabam({
   }
 });
 
+kabam.extendRoutes(function(core){
+  core.app.get('/', function (request, response) {
+    response.render('index',{userAgent:request.headers['user-agent'], title: 'Welcome!'})
+  });
+});
 
 kabam.start();
