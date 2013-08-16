@@ -1,12 +1,15 @@
 {
   "name": "mwc_meta",
-  "version": "0.0.2",
-  "description": "Meta repository to do unit and integration tests on all parts of mwc_core application.",
+  "version": "0.0.3",
+  "description": "Kabam. Higher level application build on mwcKernel",
   "main": "index.js",
+  "engines": {
+    "node": "0.10.x",
+    "npm": "1.3.x"
+  },
   "scripts": {
-    "start": "node index.js",
-    "test": "./node_modules/.bin/grunt test",
-    "blanket": { "pattern": ["index.js", "models/**/*.js", "public/**/*.js", "routes/**/*.js"] }
+    "start": "node example/example.js",
+    "test": "exit 1; echo 'Will be created soon!'"
   },
   "repository": {
     "type": "git",
@@ -21,23 +24,15 @@
   "license": "MIT",
   "dependencies": {
     "mwc_kernel": "git+https://github.com/mywebclass/mwc_kernel.git",
-    "mwc_plugin_example": "git+https://github.com/mywebclass/mwc_plugin_example.git",
-    "mwc_plugin_spine": "git+https://github.com/mywebclass/mwc_plugin_spine.git",
-    "mwc_plugin_hogan_express": "git+https://github.com/mywebclass/mwc_plugin_hogan_express.git"
+    "mwc_plugin_hogan_express": "git+https://github.com/mywebclass/mwc_plugin_hogan_express.git",
+    "mwc_plugin_welcome": "git+https://github.com/mywebclass/mwc_plugin_welcome.git",
+    "mwc_plugin_notify_by_email": "git+https://github.com/mywebclass/mwc_plugin_notify_by_email.git",
+    "mwc_plugin_rest": "git+https://github.com/mywebclass/mwc_plugin_rest.git",
+    "mwc_plugin_spine": "git+https://github.com/mywebclass/mwc_plugin_spine.git"
+  },
+  "devDependencies": {
   },
   "bugs": {
     "url": "https://github.com/mywebclass/mwc_meta/issues"
-  },
-  "devDependencies": {
-    "grunt": "~0.4.1",
-    "grunt-cli": "*",
-    "grunt-contrib-watch": "~0.5.0",
-    "grunt-contrib-jshint": "~0.6.0",
-    "should": "~1.2.2",
-    "mocha": "~1.12.0",
-    "grunt-mocha-cov": "0.0.7",
-    "blanket": "~1.1.5",
-    "request":"*",
-    "async":"*"
   }
 }
