@@ -9,7 +9,7 @@
   },
   "scripts": {
     "start": "node example/example.js",
-    "test": "exit 1; echo 'Will be created soon!'"
+    "test": "./node_modules/.bin/mocha --reporter spec"
   },
   "repository": {
     "type": "git",
@@ -31,6 +31,9 @@
     "mwc_plugin_spine": "git+https://github.com/mywebclass/mwc_plugin_spine.git"
   },
   "devDependencies": {
+    "mocha":"*",
+    "should":"*",
+    "request":"*"
   },
   "bugs": {
     "url": "https://github.com/mywebclass/mwc_meta/issues"
