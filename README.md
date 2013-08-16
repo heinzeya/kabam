@@ -1,17 +1,15 @@
 mwc_meta
 ========
 
-Meta repository to do unit and integration tests on all parts of [mwc_core](https://github.com/mywebclass/mwc_core) 
-application.
+Higher level framework build on top of - [mwc_kernel](https://github.com/mywebclass/mwc_kernel)
 
 [![Build Status](https://travis-ci.org/mywebclass/mwc_meta.png)](https://travis-ci.org/mywebclass/mwc_meta)
 
-Plugins being tested
+Plugins included:
 
-- [mwc_plugin_example](https://github.com/mywebclass/mwc_plugin_example) demonstration plugin 
-
-- [mwc_plugin_spine](https://github.com/mywebclass/mwc_plugin_spine) [![Build Status](https://travis-ci.org/mywebclass/mwc_plugin_spine.png)](https://travis-ci.org/mywebclass/mwc_plugin_spine) plugint that add task queue for application, based on  [Assemblage](https://github.com/pipedrive/assemblage) node module.
-
-- [mwc_plugin_hogan_express](https://github.com/mywebclass/mwc_plugin_hogan_express) [![Build Status](https://travis-ci.org/mywebclass/mwc_plugin_hogan_express.png?branch=master)](https://travis-ci.org/mywebclass/mwc_plugin_hogan_express) - plugin to add support for [hogan-express template engine](https://github.com/vol4ok/hogan-express).
-
-[Plugin compatibility wiki](https://github.com/mywebclass/mwc_core/wiki/Plugin-compatibility-guide)
+- [mwc_kernel](https://github.com/mywebclass/mwc_kernel.git) - Kernel
+- [mwc_plugin_hogan_express](https://github.com/mywebclass/mwc_plugin_hogan_express.git) - hoganJS template engine
+- [mwc_plugin_welcome](https://github.com/mywebclass/mwc_plugin_welcome.git) - static html authorization plugin
+- [mwc_plugin_notify_by_email](https://github.com/mywebclass/mwc_plugin_notify_by_email.git) - notify users by email
+- [mwc_plugin_rest](https://github.com/mywebclass/mwc_plugin_rest.git) - REST interface for mongoose collections
+- [mwc_plugin_spine](https://github.com/mywebclass/mwc_plugin_spine.git) - Redis backended task queue
