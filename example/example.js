@@ -2,7 +2,7 @@ var Kabam = require('./../index.js');
 
 
 var kabam = Kabam({
-  'hostUrl':'http://vvv.msk0.ru',
+  'hostUrl':'http://vvv.msk0.ru/',
   'mongoUrl':'mongodb://localhost/mwc_dev',
   'secret':'Long_and_hard_secret',
   'redis':'redis://mwcKernel:@localhost:6379',
