@@ -28,13 +28,13 @@ kabam.extendRoutes(function(core){
   });
 });
 
-kabam.start(3001);
+kabam.start(3008);
 
 
 describe('npm can build and run this application',function(){
   var response, body;
   before(function (done) {
-    request.get('http://localhost:3001/', function (err, res, b) {
+    request.get('http://localhost:3008/', function (err, res, b) {
       if (err) {
         throw err;
       }
@@ -45,7 +45,7 @@ describe('npm can build and run this application',function(){
   });
 
 
-  it('it starts HTTP server on port localhost:3001', function () {
+  it('it starts HTTP server on port localhost:3008', function () {
     response.statusCode.should.equal(403);//this is ok
   });
 
