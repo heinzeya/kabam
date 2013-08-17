@@ -8,37 +8,35 @@ module.exports = function (grunt) {
         jshintrc: '.jshintrc'
       },
       all: {
-        src: ['Gruntfile.js', 'index.js']
+        src: ['Gruntfile.js', 'index.js', 'example/**/*.js', 'test/**/*.js']
       },
       ci: {
         options: {
           force: true,
           reporter: 'checkstyle',
-          reporterOutput: 'jshint-result.xml'
+          reporterOutput: 'results/jshint-result.xml'
         },
         src: '<%= jshint.all.src %>'
       }
     },
-    mochacov: {
+    simplemocha: {
+      options: {
+        globals: ['should'],
+        ignoreLeaks: false,
+        ui: 'bdd'
+      },
       all: {
         options: {
-          reporter: 'spec',
-          require: ['should']
+          reporter: 'spec'
         },
         src: [
-          'node_modules/mwc_core/test/**/*.js',
-          'node_modules/mwc_plugin_example/test/**/*.js',
-          'node_modules/mwc_plugin_spine/test/**/*.js'
-        ]
-      },
-      ci: {
-        options: {
-          reporter: 'html-cov',
-          require: ['should']
-        },
-        src: [
-          'node_modules/mwc_core/test/**/*.js',
-          'node_modules/mwc_plugin_example/test/**/*.js',
+          'test/**/*.js',
+          'node_modules/mwc_kernel/test/**/*.js',
+          'node_modules/mwc_plugin_hogan_express/test/**/*.js',
+          'node_modules/mwc_plugin_notify_by_email/test/**/*.js',
+          'node_modules/mwc_plugin_my_profile/test/**/*.js',
+          'node_modules/mwc_plugin_welcome/test/**/*.js',
+          'node_modules/mwc_plugin_rest/test/**/*.js',
           'node_modules/mwc_plugin_spine/test/**/*.js'
         ]
       }
@@ -54,10 +52,10 @@ module.exports = function (grunt) {
   // These plugins provide necessary tasks.
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-watch');
-  grunt.loadNpmTasks('grunt-mocha-cov');
+  grunt.loadNpmTasks('grunt-simple-mocha');
 
   // Tasks
-  grunt.registerTask('test', ['mochacov']);
+  grunt.registerTask('test', ['simplemocha']);
   // Default task.
   grunt.registerTask('default', ['jshint', 'test']);
 

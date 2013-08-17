@@ -32,9 +32,10 @@
     "mwc_plugin_spine": "git+https://github.com/mywebclass/mwc_plugin_spine.git"
   },
   "devDependencies": {
-    "mocha":"*",
-    "should":"*",
-    "request":"*"
+    "mocha": "*",
+    "should": "*",
+    "request": "*",
+    "grunt-simple-mocha": "*"
   },
   "bugs": {
     "url": "https://github.com/mywebclass/mwc_meta/issues"
