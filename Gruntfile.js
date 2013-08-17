@@ -30,14 +30,7 @@ module.exports = function (grunt) {
           reporter: 'spec'
         },
         src: [
-          'test/**/*.js',
-          'node_modules/mwc_kernel/test/**/*.js',
-          'node_modules/mwc_plugin_hogan_express/test/**/*.js',
-          'node_modules/mwc_plugin_notify_by_email/test/**/*.js',
-          'node_modules/mwc_plugin_my_profile/test/**/*.js',
-          'node_modules/mwc_plugin_welcome/test/**/*.js',
-          'node_modules/mwc_plugin_rest/test/**/*.js',
-          'node_modules/mwc_plugin_spine/test/**/*.js'
+          'test/**/*.js'
         ]
       }
     },
