@@ -23,6 +23,7 @@ Documentation
 =========
 
 For now kabam object is mwcKernel object with plugins preinstalled.
+All mwcKernel api is exposed on him - [see documentation](http://ci.monimus.com/docs/#/api)
 
 Plugins are activated if they find proper field in config object.
 
@@ -50,4 +51,3 @@ Plugins are activated if they find proper field in config object.
 
 ```
 
-All this commands is applicable to him - [see documentation](http://ci.monimus.com/docs/#/api)
