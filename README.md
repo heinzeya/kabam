@@ -15,3 +15,12 @@ Plugins included:
 - [mwc_plugin_rest](https://github.com/mywebclass/mwc_plugin_rest) - REST interface for mongoose collections
 - [mwc_plugin_spine](https://github.com/mywebclass/mwc_plugin_spine) - Redis backended task queue
 
+Example
+=========
+[See here](https://github.com/mywebclass/mwc_meta/blob/master/example/example.js)
+
+Documentation
+=========
+
+For now kabam object is mwcKernel object with plugins preinstalled
+All this commands is appliable to him - [see documentation](http://ci.monimus.com/docs/#/api)
