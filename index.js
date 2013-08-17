@@ -15,4 +15,4 @@ module.exports = exports = function (config) {
   MWC.usePlugin(require('mwc_plugin_spine'));
 
   return MWC;
-}
+};
