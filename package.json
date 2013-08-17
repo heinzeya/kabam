@@ -9,7 +9,7 @@
   },
   "scripts": {
     "start": "node example/example.js",
-    "test": "./node_modules/.bin/mocha --reporter spec"
+    "test": "./node_modules/.bin/grunt test"
   },
   "repository": {
     "type": "git",
@@ -35,7 +35,11 @@
     "mocha": "*",
     "should": "*",
     "request": "*",
-    "grunt-simple-mocha": "*"
+    "grunt-simple-mocha": "*",
+    "grunt": "*",
+    "grunt-cli": "*",
+    "grunt-contrib-jshint":"*",
+    "grunt-contrib-watch":"*"
   },
   "bugs": {
     "url": "https://github.com/mywebclass/mwc_meta/issues"
