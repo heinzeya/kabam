@@ -20,7 +20,7 @@ module.exports = exports = function (config) {
   }
 
   //rest api for mongoose models
-  kabam.usePlugin(require('mwc_plugin_rest'));
+  kabam.usePlugin(require('kabam-plugin-rest'));
 
 
   //task queue

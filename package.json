@@ -52,11 +52,13 @@
     "async":"*",
     "kabam-kernel": "git+https://github.com/mykabam/kabam-kernel.git",
     "kabam-plugin-hogan": "git+https://github.com/mykabam/kabam-plugin-hogan.git",
+
     "kabam-plugin-welcome": "git+https://github.com/mykabam/kabam-plugin-welcome.git",
     "kabam-plugin-my-profile": "git+https://github.com/mykabam/kabam-plugin-my-profile.git",
     "kabam-plugin-notify-email": "git+https://github.com/mykabam/kabam-plugin-notify-email.git",
 
-    "mwc_plugin_rest": "git+https://github.com/mywebclass/mwc_plugin_rest.git",
+    "kabam-plugin-rest": "git+https://github.com/mykabam/kabam-plugin-rest.git",
+
     "mwc_plugin_spine": "git+https://github.com/mywebclass/mwc_plugin_spine.git"
   },
   "devDependencies": {
