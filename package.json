@@ -1,5 +1,5 @@
 {
-  "name": "mwc_meta",
+  "name": "kabam",
   "version": "0.0.3",
   "description": "Kabam. Higher level application build on mwcKernel",
   "main": "index.js",
@@ -13,7 +13,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/mywebclass/mwc_meta.git"
+    "url": "git://github.com/mykabam/kabam.git"
   },
   "keywords": [
     "mwc",
@@ -43,6 +43,6 @@
     "grunt-contrib-watch":"*"
   },
   "bugs": {
-    "url": "https://github.com/mywebclass/mwc_meta/issues"
+    "url": "https://github.com/mykabam/kabam/issues"
   }
 }

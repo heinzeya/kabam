@@ -3,7 +3,7 @@ mwc_meta
 
 Higher level framework build on top of - [mwc_kernel](https://github.com/mywebclass/mwc_kernel)
 
-[![Build Status](https://travis-ci.org/mywebclass/mwc_meta.png)](https://travis-ci.org/mywebclass/mwc_meta)
+[![Build Status](https://travis-ci.org/mykabam/kabam.png)](https://travis-ci.org/mywebclass/mwc_meta)
 
 Plugins included:
 
