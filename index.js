@@ -1,32 +1,32 @@
-var mwcKernel = require('mwc_kernel');
+var Kernel = require('kabam-kernel');
 
 module.exports = exports = function (config) {
-  var MWC = mwcKernel(config);
+  var kabam = Kernel(config);
 
 //basic frontend
-  MWC.extendApp(function (core) {
+  kabam.extendApp(function (core) {
     core.app.locals.delimiters = '[[ ]]';
   });
-  MWC.usePlugin(require('mwc_plugin_hogan_express'));
+  kabam.usePlugin(require('kabam-plugin-hogan'));
 //end of basic frontend
 
 //static html auth/register and edit my profile plugins
-  MWC.usePlugin(require('mwc_plugin_welcome'));
-  MWC.usePlugin(require('mwc_plugin_my_profile'));
+  kabam.usePlugin(require('mwc_plugin_welcome'));
+  kabam.usePlugin(require('mwc_plugin_my_profile'));
 
   //enable plugin to send emails
   if (config.emailConfig) {
-    MWC.usePlugin(require('mwc_plugin_notify_by_email'));
+    kabam.usePlugin(require('mwc_plugin_notify_by_email'));
   }
 
   //rest api for mongoose models
-  MWC.usePlugin(require('mwc_plugin_rest'));
+  kabam.usePlugin(require('mwc_plugin_rest'));
 
 
   //task queue
   if (config.spine) {
-    MWC.usePlugin(require('mwc_plugin_spine'));
+    kabam.usePlugin(require('mwc_plugin_spine'));
   }
 
-  return MWC;
+  return kabam;
 };

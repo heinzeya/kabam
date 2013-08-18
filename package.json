@@ -24,8 +24,8 @@
   "license": "MIT",
   "dependencies": {
     "async":"*",
-    "mwc_kernel": "git+https://github.com/mywebclass/mwc_kernel.git",
-    "mwc_plugin_hogan_express": "git+https://github.com/mywebclass/mwc_plugin_hogan_express.git",
+    "kabam-kernel": "git+https://github.com/mykabam/kabam-kernel.git",
+    "kabam-plugin-hogan": "git+https://github.com/mykabam/kabam-plugin-hogan.git",
     "mwc_plugin_welcome": "git+https://github.com/mywebclass/mwc_plugin_welcome.git",
     "mwc_plugin_my_profile": "git+https://github.com/mywebclass/mwc_plugin_my_profile.git",
     "mwc_plugin_notify_by_email": "git+https://github.com/mywebclass/mwc_plugin_notify_by_email.git",
