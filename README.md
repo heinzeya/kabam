@@ -1,9 +1,9 @@
-mwc_meta
+Kabam
 ========
 
 Higher level framework build on top of - [mwc_kernel](https://github.com/mywebclass/mwc_kernel)
 
-[![Build Status](https://travis-ci.org/mykabam/kabam.png)](https://travis-ci.org/mywebclass/mwc_meta)
+[![Build Status](https://travis-ci.org/mykabam/kabam.png)](https://travis-ci.org/mykabam/kabam)
 
 Plugins included:
 
@@ -17,7 +17,7 @@ Plugins included:
 
 Example
 =========
-[See here](https://github.com/mywebclass/mwc_meta/blob/master/example/example.js)
+[See here](https://github.com/mykabam/kabam/blob/master/example/example.js)
 
 Documentation
 =========
@@ -50,4 +50,13 @@ Plugins are activated if they find proper field in config object.
     });
 
 ```
+What do "Kabam" means?
+================
+
+It is abbrebation of names:
+[https://github.com/kaw393939](Keith Williams)
+[https://github.com/vodolaz095](Anatolij Ostroumov)
+[https://github.com/valmy](Budiman T.)
+[https://github.com/chopachom](Alexander Petrovich)
+[https://github.com/muhammadghazali](Muhammad Ghazali)
 
