@@ -25,7 +25,7 @@ module.exports = exports = function (config) {
 
   //task queue
   if (config.spine) {
-    kabam.usePlugin(require('mwc_plugin_spine'));
+    kabam.usePlugin(require('kabam-plugin-spine'));
   }
 
   return kabam;

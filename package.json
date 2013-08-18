@@ -59,7 +59,7 @@
 
     "kabam-plugin-rest": "git+https://github.com/mykabam/kabam-plugin-rest.git",
 
-    "mwc_plugin_spine": "git+https://github.com/mywebclass/mwc_plugin_spine.git"
+    "kabam-plugin-spine": "git+https://github.com/mykabam/kabam-plugin-spine.git"
   },
   "devDependencies": {
     "mocha": "*",
