@@ -36,8 +36,8 @@ module.exports = function (grunt) {
           'node_modules/kabam-plugin-notify-email/test/**/*.js',
           'node_modules/kabam-plugin-my-profile/test/**/*.js',
           'node_modules/kabam-plugin-welcome/test/**/*.js',
-          'node_modules/mwc_plugin_rest/test/**/*.js',
-          'node_modules/mwc_plugin_spine/test/**/*.js'
+          'node_modules/kabam-plugin-rest/test/**/*.js',
+          'node_modules/kabam-plugin-spine/test/**/*.js'
         ]
       }
     },
