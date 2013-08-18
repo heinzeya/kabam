@@ -17,15 +17,17 @@ Plugins included:
 
 Example
 =========
-[See here](https://github.com/mykabam/kabam/blob/master/example/example.js)
+
+We have an examples too, [check it out here](https://github.com/mykabam/kabam/blob/master/example/example.js).
 
 Documentation
 =========
 
-For now kabam object is mwcKernel object with plugins preinstalled.
-All mwcKernel api is exposed on him - [see documentation](http://ci.monimus.com/docs/#/api)
+For now Kabam object is mwcKernel object with preinstalled plugins.
+All mwcKernel api is exposed on it.
+[Please, have a good time to read more complete documentations](http://ci.monimus.com/docs/#/api).
 
-Plugins are activated if they find proper field in config object.
+Plugins are activated if they find proper field in config object:
 
 ```javascript
 
@@ -50,10 +52,11 @@ Plugins are activated if they find proper field in config object.
     });
 
 ```
+
 What do "Kabam" means?
 ================
 
-It is abbrebation of names:
+It is an abbreviation of the contributor names:
 
  - [Keith Williams](https://github.com/kaw393939) - copyright owner
  - [Anatolij Ostroumov](https://github.com/vodolaz095) - responsible developer for this package
@@ -63,14 +66,18 @@ It is abbrebation of names:
 
 Responsibility guidelines
 ================
-Every kabam plugin and package has the responsible developer. His duties are
 
-1) Maintain the package - fix and found bugs from upgrading modules included or nodejs version change
-2) React on bug reports
-3) Accept/deny pull request.
+Every Kabam's plugins and package has a maintainer. The maintainers will help to:
 
-The `Push` and `npm publish` privilege is the right of the `Responsible developer`, but the `fork` - is for everybody.
+1. Maintain the package - fix and find bugs from upgrading modules included or nodejs version change
+2. Respond to reported issues or bugs
+3. Accept/deny pull request
 
-Responsible developer for this package is  [Anatolij Ostroumov](https://github.com/vodolaz095)
+The `Push` and `npm publish` privilege is the right of the `Responsible developer`. If you are interested to help us make things better here, please fork it and send us a pull request.
 
+Responsible developer for this package is  [Anatolij Ostroumov](https://github.com/vodolaz095).
 
+License
+========
+
+Licensed under the MIT License.
