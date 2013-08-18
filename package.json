@@ -1,7 +1,7 @@
 {
   "name": "kabam",
   "version": "0.0.3",
-  "description": "Kabam. Higher level application build on mwcKernel",
+  "description": "Kabam. Higher level application framework",
   "main": "index.js",
   "engines": {
     "node": "0.10.x",
@@ -16,9 +16,9 @@
     "url": "git://github.com/mykabam/kabam.git"
   },
   "keywords": [
-    "mwc",
-    "mwc_core",
-    "meta"
+    "kabam",
+    "high level framework",
+    "framework"
   ],
   "author": "Anatolij Ostroumov",
   "license": "MIT",
@@ -49,7 +49,7 @@
     }
   ],
   "dependencies": {
-    "async":"*",
+    "async": "*",
     "kabam-kernel": "git+https://github.com/mykabam/kabam-kernel.git",
     "kabam-plugin-hogan": "git+https://github.com/mykabam/kabam-plugin-hogan.git",
 
@@ -68,8 +68,8 @@
     "grunt-simple-mocha": "*",
     "grunt": "*",
     "grunt-cli": "*",
-    "grunt-contrib-jshint":"*",
-    "grunt-contrib-watch":"*"
+    "grunt-contrib-jshint": "*",
+    "grunt-contrib-watch": "*"
   },
   "bugs": {
     "url": "https://github.com/mykabam/kabam/issues"
