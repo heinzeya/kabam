@@ -53,17 +53,6 @@ Plugins are activated if they find proper field in config object:
 
 ```
 
-What do "Kabam" means?
-================
-
-It is an abbreviation of the contributor names:
-
- - [Keith Williams](https://github.com/kaw393939) - copyright owner
- - [Anatolij Ostroumov](https://github.com/vodolaz095) - responsible developer for this package
- - [Budiman T.](https://github.com/valmy) - developer
- - [Alexander Petrovich](https://github.com/chopachom) - developer
- - [Muhammad Ghazali](https://github.com/muhammadghazali) - developer
-
 Responsibility guidelines
 ================
 
