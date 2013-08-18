@@ -11,12 +11,12 @@ module.exports = exports = function (config) {
 //end of basic frontend
 
 //static html auth/register and edit my profile plugins
-  kabam.usePlugin(require('mwc_plugin_welcome'));
-  kabam.usePlugin(require('mwc_plugin_my_profile'));
+  kabam.usePlugin(require('kabam-plugin-welcome'));
+  kabam.usePlugin(require('kabam-plugin-my-profile'));
 
   //enable plugin to send emails
   if (config.emailConfig) {
-    kabam.usePlugin(require('mwc_plugin_notify_by_email'));
+    kabam.usePlugin(require('kabam-plugin-notify-email'));
   }
 
   //rest api for mongoose models
