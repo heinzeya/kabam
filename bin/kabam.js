@@ -134,7 +134,7 @@ program
             fs.writeFile(process.cwd()+'/package.json',JSON.stringify(packageJson, null, 2),cb);
           },
           'moveFiles':function(cb){
-            ncp('../skel',process.cwd(),{'clobber':true},cb);
+            ncp(__dirname+'/../skel', process.cwd(), {'clobber':true}, cb);
           }
         },function(err,actionsDone){
           if(err) throw err;
