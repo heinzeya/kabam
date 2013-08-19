@@ -31,7 +31,7 @@ program
           });
         },
         'hostUrl': function (cb) {
-          program.prompt('What is the hostname of your server? Default is "http://' + os.hostname() + '/": ', function (name) {
+          program.prompt('What is the hostname of your server? Default is "' +(''+ os.hostname()+'').green+ '": ', function (name) {
             cb(null, name);
           });
         },
@@ -111,7 +111,7 @@ program
                 "url": "git://github.com/"+gitHubName+"/"+projectName+".git"
               },
               "keywords": [],
-              "author": (input.gitHubName)?(input.gitHubName):'johgdoe',
+              "author": gitHubName,
               "license": "MIT",
               "contributors": [
                 {
