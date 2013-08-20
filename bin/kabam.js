@@ -158,6 +158,15 @@ function publishAssets(pathToPackageJson, callback) {
     packageDir = path.dirname(pathToPackageJson),
     packages = [];
 
+  function doNcp(assetsPath,callback){
+    ncp(assetsPath, process.cwd(), function(err){
+      if(err){
+        doNcp(assetsPath,callback);
+      } else {
+        callback(null);
+      }
+    });
+  }
   for (var key in packageJson.dependencies) {
     packages.push(key);
   }
@@ -177,7 +186,7 @@ function publishAssets(pathToPackageJson, callback) {
         }
         if (assets && assets.length > 0) {
           console.log('Installing assets for plugin ' + ('' + packageName).green + '!');
-          ncp(assetsPath, process.cwd(), cb);
+          doNcp(assetsPath,cb);
         } else {
           console.log('There is no assets for plugin ' + ('' + packageName).green + '!');
           cb(null);
@@ -204,11 +213,14 @@ program
           publishAssets(process.cwd() + '/package.json', cb);
         },
         'kabam': function (cb) {
-          publishAssets(process.cwd() + '/node_modules/kabam/package.json', cb);
+          publishAssets(process.cwd() + '/node_modules/kabam/package.json', function(err){
+            if(err) console.error(err);
+            cb(null);
+          });
         }
       }, function (err) {
         if (err) {
-          throw err;
+          console.error(err);
         }
         process.exit(0);
       });
