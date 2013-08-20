@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 var program = require('commander'),
   pkg = require('../package.json'),
+  path = require('path'),
   cwd = process.cwd(),
   fs = require('fs'),
   os = require('os'),
@@ -141,7 +142,7 @@ program
             throw err;
           }
           console.log('Project created!'.green);
-          console.log('We need to install all needed modules by running ' + '$ npm install'.bold  + ' in the folder on newly created project!');
+          console.log('We need to install all needed modules by running ' + '$ npm install'.bold + ' in the folder on newly created project!');
           console.log('Than we need to run ' + '$ kabam.js publishAssets'.bold + ' to install views, public files and other things from plugins');
           process.exit(0);
         });
@@ -152,9 +153,11 @@ program
     }
   });
 
-function publishAssets(pathToPackageJson){
-  var packageJson= require(pathToPackageJson),
-   packages = [];
+function publishAssets(pathToPackageJson, callback) {
+  var packageJson = require(path.resolve(pathToPackageJson)),
+    packageDir = path.dirname(pathToPackageJson),
+    packages = [];
+
   for (var key in packageJson.dependencies) {
     packages.push(key);
   }
@@ -162,10 +165,10 @@ function publishAssets(pathToPackageJson){
   async.each(packages, function (packageName, cb) {
     if (/^kabam\-plugin\-[0-9a-z\-]+$/.test(packageName)) {
       console.log('We found ' + ('' + packageName).green + ' that looks like kabam plugin!');
-      var assetsPath = '' + process.cwd() + '/node_modules/' + packageName + '/assets';
+      var assetsPath = '' + packageDir + '/node_modules/' + packageName + '/assets';
 
-      if(fs.existsSync(assetsPath)){
-        var assets = fs.readdirSync('' + process.cwd() + '/node_modules/' + packageName + '/assets');
+      if (fs.existsSync(assetsPath)) {
+        var assets = fs.readdirSync('' + packageDir + '/node_modules/' + packageName + '/assets');
         if (assets.indexOf('views') !== -2) {
           console.log('We found views for ' + ('' + packageName).green + '!');
         }
@@ -186,14 +189,7 @@ function publishAssets(pathToPackageJson){
     } else {
       cb(null);
     }
-  }, function (err) {
-    if (err) {
-      throw err;
-    }
-    process.exit(0);
-  });
-
-
+  }, callback);
 }
 
 
@@ -201,27 +197,26 @@ program
   .command('publishAssets')
   .description('Publish templates(views), css, javascripts and images from kabam plugins ')
   .action(function () {
-
     if (fs.existsSync(process.cwd() + '/package.json')) {
       console.log('Publishing assets from 3rdParty modules');
-      publishAssets(process.cwd() + '/package.json');
+      async.parallel({
+        '3rdParty': function (cb) {
+          publishAssets(process.cwd() + '/package.json', cb);
+        },
+        'kabam': function (cb) {
+          publishAssets(process.cwd() + '/node_modules/kabam/package.json', cb);
+        }
+      }, function (err) {
+        if (err) {
+          throw err;
+        }
+        process.exit(0);
+      });
     } else {
       console.error('Error!'.red);
       console.log('This directory do not have nodejs project in it...');
       process.exit(1);
     }
-
-    console.log('Publishing assets from kabam modules');
-
-//    if (fs.existsSync(process.cwd() + '/package.json')) {
-//      publishAssets(process.cwd() + '/package.json');
-//    } else {
-//      console.error('Error!'.red);
-//      console.log('This directory do not have nodejs project in it...');
-//      process.exit(1);
-//    }
-
-
   });
 
 program
