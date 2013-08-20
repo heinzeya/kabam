@@ -39,6 +39,12 @@ module.exports = function (grunt) {
           'node_modules/kabam-plugin-rest/test/**/*.js',
           'node_modules/kabam-plugin-spine/test/**/*.js'
         ]
+      },
+      ci: {
+        options: {
+          reporter: 'tap'
+        },
+        src: '<%= simplemocha.all.src %>'
       }
     },
     watch: {
@@ -56,6 +62,7 @@ module.exports = function (grunt) {
 
   // Tasks
   grunt.registerTask('test', ['simplemocha']);
+  grunt.registerTask('testci', ['simplemocha:ci']);
   // Default task.
   grunt.registerTask('default', ['jshint', 'test']);
 
