@@ -69,9 +69,9 @@ program
               }};
 
             if (input.hostUrl) {
-              config.hostUrl = input.hostUrl;
+              config.hostUrl = 'http://'+input.hostUrl+'/';
             } else {
-              config.hostUrl = os.hostname();
+              config.hostUrl = 'http://'+os.hostname()+'/';
             }
 
             if (input.mongoUrl) {

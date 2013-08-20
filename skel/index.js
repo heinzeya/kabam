@@ -8,7 +8,7 @@ var kabam = Kabam(require('./config.json'));
 
 models.map(function(modelName){
   var modelObj = require('./models/'+modelName);
-  kabam.extendModel(modelObj.name, modelName.function);
+  kabam.extendModel(modelObj.name, modelName.initFunction);
 });
 
 routes.map(function(routeName){

@@ -1,7 +1,5 @@
-/**
- * Created with JetBrains PhpStorm.
- * User: nap
- * Date: 8/19/13
- * Time: 8:02 PM
- * To change this template use File | Settings | File Templates.
- */
+module.exports = exports = function (kabam) {
+  kabam.app.get('/', function (request, response) {
+    response.render('index', {userAgent: request.headers['user-agent'], title: 'Welcome!'})
+  });
+};
