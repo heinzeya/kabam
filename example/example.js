@@ -26,4 +26,16 @@ kabam.extendRoutes(function (core) {
   });
 });
 
+//kabam.start();
 kabam.startCluster();
+
+/*
+promote soe users to root
+setTimeout(function(){
+kabam.model.User.findOneByLoginOrEmail('vodolaz095',function(err,userFound){
+  userFound.root=true;
+  userFound.save(function(){
+    console.log('You are root!');
+  });
+})},5000);
+*/
