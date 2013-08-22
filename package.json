@@ -67,7 +67,7 @@
 
     "kabam-plugin-spine": "git+https://github.com/mykabam/kabam-plugin-spine.git",
     "kabam-plugin-users": "git+https://github.com/mykabam/kabam-plugin-users.git",
-    
+
     "kabam-plugin-private-message": "git+https://github.com/mykabam/kabam-plugin-private-message.git"
   },
   "devDependencies": {
@@ -78,7 +78,11 @@
     "grunt": "*",
     "grunt-cli": "*",
     "grunt-contrib-jshint": "*",
-    "grunt-contrib-watch": "*"
+    "grunt-contrib-watch": "*",
+    "grunt-ngdoc": "*",
+    "grunt-contrib-copy": "*",
+    "grunt-ngdocs": "*",
+    "grunt-contrib-clean": "*"
   },
   "bugs": {
     "url": "https://github.com/mykabam/kabam/issues"
