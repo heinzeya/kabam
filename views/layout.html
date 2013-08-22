@@ -18,11 +18,12 @@
             height: 100%;
         }
     </style>
-    <link type="text/css" href="//yandex.st/bootstrap/2.3.2/css/bootstrap.min.css" rel="stylesheet"/>
-    <link type="text/css" href="//yandex.st/bootstrap/2.3.2/css/bootstrap-responsive.min.css" rel="stylesheet"/>
-    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-    <script async="async" type="text/javascript" src="//yandex.st/bootstrap/2.3.2/js/bootstrap.min.js"></script>
+[[#css]]
+    <link type="text/css" href="[[url]]" rel="stylesheet" [[#media]]media="[[media]]"[[/media]]/>
+[[/css]]
+[[#javascripts]]
+    <script [[#async]]async="async"[[/async]] type="text/javascript" src="[[url]]"></script>
+[[/javascripts]]
     <link rel="shortcut icon" href="/favicon.ico">
 </head>
 <body>
@@ -35,9 +36,6 @@
 [[#myself]]
                 <li>
                     <a href="/auth/myProfile">[[username]]</a>
-                </li>
-                <li>
-                    <a href="/team">My team</a>
                 </li>
                 <li>
                     <a href="javascript:logoff()">LogOut</a>
@@ -75,7 +73,7 @@
         {{=[[ ]]=}}
     </div>
     <div class="span12">
-        <p>&copy;<a href="https://github.com/mykabam/kabam">https://github.com/mykabam/kabam</a></p>
+        <p>&copy; 2013 - <a href="#">Insert your name here</a></p>
     </div>
 </div>
 
