@@ -14,6 +14,10 @@ module.exports = exports = function (config) {
   kabam.usePlugin(require('kabam-plugin-welcome'));
   kabam.usePlugin(require('kabam-plugin-my-profile'));
 
+//private messages api
+  kabam.usePlugin(require('kabam-plugin-private-message'));
+
+
   //enable plugin to send emails
   if (config.emailConfig) {
     kabam.usePlugin(require('kabam-plugin-notify-email'));
