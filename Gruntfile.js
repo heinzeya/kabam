@@ -37,6 +37,7 @@ module.exports = function (grunt) {
           'node_modules/kabam-plugin-my-profile/test/**/*.js',
           'node_modules/kabam-plugin-welcome/test/**/*.js',
           'node_modules/kabam-plugin-rest/test/**/*.js',
+          'node_modules/kabam-plugin-private-message/test/**/*.js',
           'node_modules/kabam-plugin-spine/test/**/*.js'
         ]
       },
@@ -79,7 +80,7 @@ module.exports = function (grunt) {
           'node_modules/kabam-plugin-spine/index.js',
           'node_modules/kabam-plugin-spine/welcome.js',
         ],
-        title: 'MWC Kernel API'
+        title: 'Kabam API With plugins'
       }
     },
     watch: {
