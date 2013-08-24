@@ -79,7 +79,6 @@
     "grunt-cli": "*",
     "grunt-contrib-jshint": "*",
     "grunt-contrib-watch": "*",
-    "grunt-ngdoc": "*",
     "grunt-contrib-copy": "*",
     "grunt-ngdocs": "*",
     "grunt-contrib-clean": "*"

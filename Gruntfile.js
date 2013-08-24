@@ -1,3 +1,22 @@
+var path = require('path');
+
+/**
+ * automatically add ngdoc directives
+ */
+var processContent = function(content, srcpath) {
+  return "@ngdoc overview\n@name " + path.basename(path.dirname(srcpath)) + "\n@description\n\n" + content;
+};
+
+/**
+ * prepare file copy string from module name
+ */
+var copyRules = function(name) {
+  return {
+    src: 'node_modules/' + name + '/README.md',
+    dest: 'results/repositories/' + name + '.ngdoc'
+  };
+};
+
 module.exports = function (grunt) {
 
   // Project configuration.
@@ -52,15 +71,26 @@ module.exports = function (grunt) {
       docs: [ 'results/docs' ]
     },
     copy: {
+      options: {
+        processContent: processContent
+      },
       readme: {
-        src: 'README.md',
-        dest: 'results/index.ngdoc'
+        files: [
+          { src: 'README.md', dest: 'results/index.ngdoc' },
+          copyRules('kabam-kernel'),
+          copyRules('kabam-plugin-hogan'),
+          copyRules('kabam-plugin-my-profile'),
+          copyRules('kabam-plugin-notify-email'),
+          copyRules('kabam-plugin-private-message'),
+          copyRules('kabam-plugin-rest'),
+          copyRules('kabam-plugin-spine')
+        ]
       }
     },
     ngdocs: {
       options: {
         dest: 'results/docs',
-        title: 'KabamKernel',
+        title: 'Kabam',
         startPage: '/api'
       },
       api: {
@@ -78,9 +108,13 @@ module.exports = function (grunt) {
           'node_modules/kabam-plugin-private-message/index.js',
           'node_modules/kabam-plugin-rest/index.js',
           'node_modules/kabam-plugin-spine/index.js',
-          'node_modules/kabam-plugin-spine/welcome.js',
+          'node_modules/kabam-plugin-spine/welcome.js'
         ],
-        title: 'Kabam API With plugins'
+        title: 'Kabam API with plugins'
+      },
+      repositories: {
+        src: 'results/repositories/*.ngdoc',
+        title: 'Repositories'
       }
     },
     watch: {
