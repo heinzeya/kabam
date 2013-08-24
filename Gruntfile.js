@@ -33,11 +33,11 @@ module.exports = function (grunt) {
           'test/**/*.js',
           'node_modules/kabam-kernel/test/**/*.js',
           'node_modules/kabam-plugin-hogan/test/**/*.js',
+//          'node_modules/kabam-plugin-private-message/test/**/*.js',
           'node_modules/kabam-plugin-notify-email/test/**/*.js',
           'node_modules/kabam-plugin-my-profile/test/**/*.js',
           'node_modules/kabam-plugin-welcome/test/**/*.js',
           'node_modules/kabam-plugin-rest/test/**/*.js',
-          'node_modules/kabam-plugin-private-message/test/**/*.js',
           'node_modules/kabam-plugin-spine/test/**/*.js'
         ]
       },
