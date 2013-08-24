@@ -83,7 +83,8 @@ module.exports = function (grunt) {
           copyRules('kabam-plugin-notify-email'),
           copyRules('kabam-plugin-private-message'),
           copyRules('kabam-plugin-rest'),
-          copyRules('kabam-plugin-spine')
+          copyRules('kabam-plugin-spine'),
+          copyRules('kabam-plugin-users')
         ]
       }
     },
@@ -108,7 +109,8 @@ module.exports = function (grunt) {
           'node_modules/kabam-plugin-private-message/index.js',
           'node_modules/kabam-plugin-rest/index.js',
           'node_modules/kabam-plugin-spine/index.js',
-          'node_modules/kabam-plugin-spine/welcome.js'
+          'node_modules/kabam-plugin-spine/welcome.js',
+          'node_modules/kabam-plugin-users/index.js'
         ],
         title: 'Kabam API with plugins'
       },
