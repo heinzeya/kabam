@@ -97,7 +97,7 @@ module.exports = function (grunt) {
       api: {
         src: [
           'results/index.ngdoc',
-          'node_modules/kabam-kernel/bins/*.js',
+          'node_modules/kabam-kernel/bin/*.js',
           'node_modules/kabam-kernel/example/*.js',
           'node_modules/kabam-kernel/lib/*.js',
           'node_modules/kabam-kernel/models/userModel.js',
