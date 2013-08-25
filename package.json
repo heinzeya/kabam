@@ -58,6 +58,7 @@
     "colors":"*",
     "kabam-kernel": "git+https://github.com/mykabam/kabam-kernel.git",
     "kabam-plugin-hogan": "git+https://github.com/mykabam/kabam-plugin-hogan.git",
+    "kabam-plugin-geoip": "git+https://github.com/mykabam/kabam-plugin-geoip.git",
 
     "kabam-plugin-welcome": "git+https://github.com/mykabam/kabam-plugin-welcome.git",
     "kabam-plugin-my-profile": "git+https://github.com/mykabam/kabam-plugin-my-profile.git",
@@ -67,6 +68,7 @@
 
     "kabam-plugin-spine": "git+https://github.com/mykabam/kabam-plugin-spine.git",
     "kabam-plugin-users": "git+https://github.com/mykabam/kabam-plugin-users.git",
+
 
     "kabam-plugin-private-message": "git+https://github.com/mykabam/kabam-plugin-private-message.git"
   },

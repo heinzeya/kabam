@@ -17,8 +17,10 @@ module.exports = exports = function (config) {
 //private messages api
   kabam.usePlugin(require('kabam-plugin-private-message'));
 
+//geoip
+  kabam.usePlugin(require('kabam-plugin-geoip'));
 
-  //enable plugin to send emails
+//enable plugin to send emails
   if (config.emailConfig) {
     kabam.usePlugin(require('kabam-plugin-notify-email'));
   }
