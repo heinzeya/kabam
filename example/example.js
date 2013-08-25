@@ -29,8 +29,8 @@ kabam.extendRoutes(function (core) {
 //kabam.start();
 kabam.startCluster();
 
-/*
-promote soe users to root
+/*/
+//promote users to root
 setTimeout(function(){
 kabam.model.User.findOneByLoginOrEmail('vodolaz095',function(err,userFound){
   userFound.root=true;
@@ -38,4 +38,4 @@ kabam.model.User.findOneByLoginOrEmail('vodolaz095',function(err,userFound){
     console.log('You are root!');
   });
 })},5000);
-*/
+//*/

@@ -11,6 +11,7 @@
         <tr ng-repeat='user in users  | filter:query | orderBy:"username"'>
             <td>
                 <h4>{{ user.username }}</h4>
+                <img ng-src="{{ user.gravatar }}" alt="Gravatar of user" title="gravatar of user" class="pull-left"/>
                 <p>{{ user.firstName +' '+ user.lastName }}</p>
                 <p>
                     <a href="mailto:{{ user.email }}">{{ user.email }}</a> <span ng-show="user.emailVerified" class="label label-success"></span>
