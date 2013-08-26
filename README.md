@@ -89,6 +89,16 @@ We need to set the email credentials for application
   $ heroku config:set emailConfig='mywebclass@webizly.com:someVeryLongAndHardPasswordToIrritateSpammersALittleMore111111'
 ```
 
+You can try this application in action - [http://mykabam.herokuapp.com/](http://mykabam.herokuapp.com/).
+For now
+
+ - You can sign up by username, email and password
+ - Sign in by username and login
+ - Edit profile [http://mykabam.herokuapp.com/auth/myProfile](http://mykabam.herokuapp.com/auth/myProfile)
+ - See how geotagging works here [http://mykabam.herokuapp.com/](http://mykabam.herokuapp.com/). For me it shows that i  am in town of Moscow, but i am in city of Klin now... 50km from Moscow
+ - Set first name, last name, skype and attach github/twitter accounts (facebook do not works for now)
+
+
 
 License
 ========
