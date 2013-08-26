@@ -67,6 +67,29 @@ The `Push` and `npm publish` privilege is the right of the `Responsible develope
 
 Responsible developer for this package is  [Anatolij Ostroumov](https://github.com/vodolaz095).
 
+Deployment on heroku
+================
+
+We need to add custom buildpack for cairo lib - used in captcha
+
+```shell
+  $ heroku config:set BUILDPACK_URL='git://github.com/mojodna/heroku-buildpack-nodejs.git#cairo'
+```
+
+We need to install one of Redis and one MongoDB providers avaible at [https://addons.heroku.com](https://addons.heroku.com)
+
+We need to manually set the hostUrl
+```shell
+  $ heroku config:set hostUrl='http://mykabam.herokuapp.com/'
+```
+
+We need to set the email credentials for application
+
+```shell
+  $ heroku config:set emailConfig='mywebclass@webizly.com:someVeryLongAndHardPasswordToIrritateSpammersALittleMore111111'
+```
+
+
 License
 ========
 

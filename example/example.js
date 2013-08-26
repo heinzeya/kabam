@@ -2,10 +2,10 @@ var Kabam = require('./../index.js');
 
 
 var kabam = Kabam({
-  'hostUrl': 'http://vvv.msk0.ru/',
-  'mongoUrl': 'mongodb://localhost/mwc_dev',
+  'hostUrl': ((process.env.hostUrl) ? (process.env.hostUrl) : 'http://vvv.msk0.ru/'),
+//  'mongoUrl': 'mongodb://localhost/mwc_dev', - we use it from enviroment
   'secret': 'Long_and_hard_secret',
-  'redis': 'redis://mwcKernel:@localhost:6379',
+//  'redis': 'redis://mwcKernel:@localhost:6379', - we use it from enviroment
   'emailConfig': ((process.env.emailConfig) ? (process.env.emailConfig) : 'myemail@gmail.com:1234567'),
   "passport": {
     "GITHUB_CLIENT_ID": "--insert-github-client-id-here--",
