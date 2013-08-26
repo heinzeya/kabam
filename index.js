@@ -33,7 +33,7 @@ module.exports = exports = function (config) {
 
   //task queue
   if (config.spine) {
-    kabam.usePlugin(require('kabam-plugin-spine'));
+    //kabam.usePlugin(require('kabam-plugin-spine'));
   }
 
   return kabam;
