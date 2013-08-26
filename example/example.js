@@ -27,7 +27,14 @@ kabam.extendRoutes(function (core) {
 });
 
 //kabam.start();
-kabam.startCluster();
+//kabam.startCluster();
+
+kabam.start('app');//prepare application
+kabam.mwc_sio.listenWithSocketIo(3000);
+
+setInterval(function(){
+  kabam.emit('broadcast',{'message': (''+Math.random())});
+},5000);
 
 /*/
 //promote users to root

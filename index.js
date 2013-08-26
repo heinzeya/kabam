@@ -4,10 +4,11 @@ module.exports = exports = function (config) {
   var kabam = Kernel(config);
 
 //basic frontend
-  kabam.extendApp(function (core) {
-    core.app.locals.delimiters = '[[ ]]';
-  });
   kabam.usePlugin(require('kabam-plugin-hogan'));
+  kabam.extendApp(function (core) {
+    //core.app.locals.delimiters = '[[ ]]';
+    core.app.locals.javascripts.push({url: '/socket.io/socket.io.js'});
+  });
 //end of basic frontend
 
 //static html auth/register and edit my profile plugins
@@ -31,6 +32,7 @@ module.exports = exports = function (config) {
   //rest api for mongoose models
   kabam.usePlugin(require('kabam-plugin-users'));
 
+  kabam.usePlugin(require('mwc_plugin_socket_io'));
   //task queue
   if (config.spine) {
     //kabam.usePlugin(require('kabam-plugin-spine'));
