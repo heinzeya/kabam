@@ -76,7 +76,7 @@ We need to add custom buildpack for cairo lib - used in captcha
   $ heroku config:set BUILDPACK_URL='git://github.com/mojodna/heroku-buildpack-nodejs.git#cairo'
 ```
 
-We need to install one of Redis and one MongoDB providers avaible at [https://addons.heroku.com](https://addons.heroku.com)
+We need to install one of Redis and one MongoDB providers available at [https://addons.heroku.com](https://addons.heroku.com)
 
 We need to manually set the hostUrl
 ```shell
