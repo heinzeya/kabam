@@ -156,7 +156,7 @@ For non authorized user there is this routes present :
 - `POST /auth/restoreAccount` - send email with link to restore access to account. Mandatory paramerer - `email`.
 - `POST /auth/resetPassword` - reset password for current user. Mandatory parameters are `apiKey` and `password`.
 
-We are working on the live documentation here - [http://docs.vodolaz095.apiary.io/](http://docs.vodolaz095.apiary.io/)
+We are working on the live documentation here - [http://docs.mykabam.apiary.io/](http://docs.mykabam.apiary.io/)
 
 Documentation disclaimer
 ================
