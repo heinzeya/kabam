@@ -19,7 +19,7 @@ GET /somepage
 Register with username, password and email address via angular frontend
 POST /auth/signup
 > Accept: application/json
-> Content-Type: application/json
+> Content-Type: application/json; charset=UTF-8
 {
     "_csrf":"csrfCode",
     "username":"usernameToUseForNewUser",
@@ -27,7 +27,7 @@ POST /auth/signup
     "password": "myLongAndHardPassword"
 }
 < 201
-< Content-Type: application/json
+< Content-Type: application/json; charset=UTF-8
 {
   'username':"usernameToUseForNewUser"
   'email': "emailForNewUser@example.org"
