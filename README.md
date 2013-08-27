@@ -129,10 +129,20 @@ Routes, related to user authorization and authentication.
 POST requests can be simple html form submits or can be application/json types.
 If post request have type application/json, kabam responds with application/json page.
 If request is from form submit, browser is redirected with 302 code.
+There is a CSRF protection present - client have to include the value of cookie of
+`CSRF-TOKEN` in each POST/PUT/DELETE requests as a field of `_csrf`. When submiting the form this
+value is usually printed in form and in views like this:
+
+```html
+
+    <input type="hidden" name="_csrf" value="[[_csrf]"/>
+
+```
+
 
 For non authorized user there is this routes present :
 
-- `GET /auth/google` - try to autorize user via Google Account  by oAuth
+- `GET /auth/google` - try to autorize user via Google Account  by oAuth. If user with this email is not present in database, we create his/her account with verified gmail address, but without username and password. When user starts work with site, he\she prompted to enter them.
 - `GET /auth/twitter` - try to autorize user via Twitter Account by oAuth
 - `GET /auth/github` - try to autorize user via Github Account  by oAuth
 - `GET /auth/facebook` - try to autorize user via Facebook Account  by oAuth
@@ -140,7 +150,8 @@ For non authorized user there is this routes present :
 - `GET /auth/confirm/veryLongHashKey` - usually this links are recieved by email after registration.
 - `POST /auth/login` - authorize by login and password with two mandatory parameters - `username` and `password`.
 - `POST /auth/signup` - create new user account with 3 mandatory parameters - `username`,`email` and `password`.
-
+- `POST /auth/isBusy` - route to be executed by ajax to determine, if username or email is in use. Two mandatory parameters - `username` and `email`. Response is a JSON object with information about it, like this - `{ 'username':'OK', 'email': 'OK' }`
+- `POST /auth/completeProfile
 
 Documentation disclaimer
 ================
