@@ -307,3 +307,28 @@ POST /api/messages/john1
 }
 < 301
 < Header: Location: back
+
+
+-- kabam-plugin-my-profile --
+
+Get basic HTML page with form to edit this current user profile
+GET /auth/myProfile
+< 200
+< Content-Type: text/html; charset=UTF-8
+
+
+Edits the current user profile. For now works with this parameters, extracted from body of POST request
+POST /auth/myProfile
+> Accept: application/x-www-form-urlencoded
+> Content-type: application/x-www-form-urlencoded
+{
+ "firstName":"john",
+ "lastName":"doe",
+  "skype":"johndoe",
+  "password1":"mylongAndHardPassword"
+  "password2":"mylongAndHardPassword"
+}
+< 301
+< Header: Location: back
+
+
