@@ -146,12 +146,17 @@ For non authorized user there is this routes present :
 - `GET /auth/twitter` - try to autorize user via Twitter Account by oAuth
 - `GET /auth/github` - try to autorize user via Github Account  by oAuth
 - `GET /auth/facebook` - try to autorize user via Facebook Account  by oAuth
-
 - `GET /auth/confirm/veryLongHashKey` - usually this links are recieved by email after registration.
+- `GET /login` - Page to singin\signup.
 - `POST /auth/login` - authorize by login and password with two mandatory parameters - `username` and `password`.
 - `POST /auth/signup` - create new user account with 3 mandatory parameters - `username`,`email` and `password`.
 - `POST /auth/isBusy` - route to be executed by ajax to determine, if username or email is in use. Two mandatory parameters - `username` and `email`. Response is a JSON object with information about it, like this - `{ 'username':'OK', 'email': 'OK' }`
-- `POST /auth/completeProfile
+- `POST /auth/completeProfile` - complete user profile (set username and password) when user tryes to register via Google account. Two mandatory parameters - `username` and `password`.
+- `GET /auth/restoreAccount` - page where one can request email with link to page to reset his password.
+- `POST /auth/restoreAccount` - send email with link to restore access to account. Mandatory paramerer - `email`.
+- `POST /auth/resetPassword` - reset password for current user. Mandatory parameters are `apiKey` and `password`.
+
+
 
 Documentation disclaimer
 ================
