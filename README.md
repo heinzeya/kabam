@@ -81,6 +81,7 @@ Exposed API
   });
 
 ```
+
   `redis`. Kabam can spawn ready to work redis clients by command [kabam.createRedisClient](http://ci.monimus.com/docs/#/api/kabamKernel.createRedisClient)
 
 ```javascript
