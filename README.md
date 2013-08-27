@@ -54,6 +54,47 @@ Plugins are activated if they find proper field in config object:
 
 ```
 
+Exposed API
+================
+
+ `Model`. Kabam fully exposes model object of kernel application, that includes all mongoose models,
+ being used by this application
+
+ `User model`. Kabam fully exposes kernel user model, so we can create, edit and do other user related tasks programmaticly.
+ Actual documentation on User's model is published here [http://ci.monimus.com/docs/#/api/kabamKernel.model.User](http://ci.monimus.com/docs/#/api/kabamKernel.model.User)
+ The user model itself is a Active Record class, build on top of [mongooseJS](http://mongoosejs.com/) schema
+ The user model instance - User, is described here - [http://ci.monimus.com/docs/#/api/User](http://ci.monimus.com/docs/#/api/User)
+
+  Example:
+
+```javascript
+
+  kabam.model.User.findOne({'username':'vodolaz095'}, function(err,userFound){
+    userFound.notify('email','Hello!');
+    usesFound.setPassword('someNewPassword',function(err){
+      userFound.notify('email','Your new password is "someNewPassword"');
+    });
+  });
+
+  kabam.model.User.signUp('vodolaz095','vodolaz096@example.org', 'SomeLooongAndHardPassw0rd', function(err,userCreated){
+    userFound.notify('email','Hello! Verify your email please, see our previous message!');
+  });
+
+```
+  `redis`. Kabam can spawn ready to work redis clients by command [kabam.createRedisClient](http://ci.monimus.com/docs/#/api/kabamKernel.createRedisClient)
+
+```javascript
+
+  var client = kabam.createRedisClient();
+  client.set('someValue','1',function(err){
+    if(err) throw err;
+    console.log('value is set!');
+  });
+
+```
+
+  `Event emmiter` - kabam inherites the event emmiting capabilities from kernel, and kernel inherits it from [nodejs event emmiter](http://nodejs.org/api/events.html)
+
 Responsibility guidelines
 ================
 
