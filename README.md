@@ -95,6 +95,32 @@ Exposed API
 ```
 
   `Event emmiter` - kabam inherites the event emmiting capabilities from kernel, and kernel inherits it from [nodejs event emmiter](http://nodejs.org/api/events.html)
+  For now kabam emits events on various of situation. They are mainly documented here [http://ci.monimus.com/docs/#/api/kabamKernel.on](http://ci.monimus.com/docs/#/api/kabamKernel.on)
+  For example,
+
+```javascript
+
+    kabam.on('http',function(log){ //basic http logger
+      if(log.username){
+        console.log('User "'+log.username+'" made '+log.method+' request to page '+log.uri + ' from IP of '.log.ip);
+      } else {
+        console.log('User "Anonimus" made '+log.method+' request to page '+log.uri + ' from IP of '.log.ip);
+      }
+    });
+
+    //event handler for user being registered
+    kabamKernel.on('users:signUp', function(user){
+       if(user.email === 'freddyKrugger@example.org'){
+          user.ban(function(err){
+            if(err) throw err;
+          })
+       } else {
+         console.log('Welcome, '+user.username + '!');
+       }
+    });
+
+
+```
 
 Responsibility guidelines
 ================
