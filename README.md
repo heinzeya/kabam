@@ -122,6 +122,12 @@ Exposed API
 
 ```
 
+Documentation disclaimer
+================
+Product is at state of development. But documentation are always correct.
+It means that if feature is documented, it WORKS as documented.
+But there can be more features, that are not documented.
+
 Responsibility guidelines
 ================
 
