@@ -122,11 +122,33 @@ Exposed API
 
 ```
 
+HTTP - REST API
+================
+
+Routes, related to user authorization and authentication.
+POST requests can be simple html form submits or can be application/json types.
+If post request have type application/json, kabam responds with application/json page.
+If request is from form submit, browser is redirected with 302 code.
+
+For non authorized user there is this routes present :
+
+- `GET /auth/google` - try to autorize user via Google Account  by oAuth
+- `GET /auth/twitter` - try to autorize user via Twitter Account by oAuth
+- `GET /auth/github` - try to autorize user via Github Account  by oAuth
+- `GET /auth/facebook` - try to autorize user via Facebook Account  by oAuth
+
+- `GET /auth/confirm/veryLongHashKey` - usually this links are recieved by email after registration.
+- `POST /auth/login` - authorize by login and password with two mandatory parameters - `username` and `password`.
+- `POST /auth/signup` - create new user account with 3 mandatory parameters - `username`,`email` and `password`.
+
+
 Documentation disclaimer
 ================
 Product is at state of development. But documentation are always correct.
 It means that if feature is documented, it WORKS as documented.
 But there can be more features, that are not documented.
+
+
 
 Responsibility guidelines
 ================
