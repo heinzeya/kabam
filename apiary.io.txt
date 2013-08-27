@@ -106,3 +106,204 @@ POST /auth/login
   "username":"usernameToUseForNewUser",
   "email": "emailForNewUser@example.org"
 }
+
+
+-- Private message --
+
+
+Get recent private message to this authorized user
+GET /api/messages
+< 200
+< Content-Type: application/json
+[
+    {
+        "to": "523ea525e251a514514135325"
+        "toProfile":{
+        "username":"john1",
+        "gravatar":"https://secure.gravatar.com/avatar/02ba513b62ef9f2f7798b9bac1ccf822.jpg?s=80&d=wavatar&r=g",
+        "lang":"en",
+        "root":false,
+        "isBanned":"false",
+        "roles":[],
+        "skype":"johndoe1",
+        "lastName":"doe1",
+        "firstName":"john"
+        },
+        "from": "523ea525e251a514514135326",
+        "fromProfile":{
+        "username":"john2",
+        "gravatar":"https://secure.gravatar.com/avatar/02ba513b62ef9f2f7798b9bac1ccf822.jpg?s=80&d=wavatar&r=g",
+        "lang":"en",
+        "root":false,
+        "isBanned":"false",
+        "roles":[],
+        "skype":"johndoe2",
+        "lastName":"doe2",
+        "firstName":"john"
+        },
+        "message":"Hello, this is my message!"
+    },
+        {
+        "to": "523ea525e251a514514135325"
+        "toProfile":{
+        "username":"john1",
+        "gravatar":"https://secure.gravatar.com/avatar/02ba513b62ef9f2f7798b9bac1ccf822.jpg?s=80&d=wavatar&r=g",
+        "lang":"en",
+        "root":false,
+        "isBanned":"false",
+        "roles":[],
+        "skype":"johndoe1",
+        "lastName":"doe1",
+        "firstName":"john"
+        },
+        "from": "523ea525e251a514514135326",
+        "fromProfile":{
+        "username":"john2",
+        "gravatar":"https://secure.gravatar.com/avatar/02ba513b62ef9f2f7798b9bac1ccf822.jpg?s=80&d=wavatar&r=g",
+        "lang":"en",
+        "root":false,
+        "isBanned":"false",
+        "roles":[],
+        "skype":"johndoe2",
+        "lastName":"doe2",
+        "firstName":"john"
+        },
+        "message":"Hello, this is my message!"
+    },
+        {
+        "to": "523ea525e251a514514135325"
+        "toProfile":{
+        "username":"john1",
+        "gravatar":"https://secure.gravatar.com/avatar/02ba513b62ef9f2f7798b9bac1ccf822.jpg?s=80&d=wavatar&r=g",
+        "lang":"en",
+        "root":false,
+        "isBanned":"false",
+        "roles":[],
+        "skype":"johndoe1",
+        "lastName":"doe1",
+        "firstName":"john"
+        },
+        "from": "523ea525e251a514514135326",
+        "fromProfile":{
+        "username":"john2",
+        "gravatar":"https://secure.gravatar.com/avatar/02ba513b62ef9f2f7798b9bac1ccf822.jpg?s=80&d=wavatar&r=g",
+        "lang":"en",
+        "root":false,
+        "isBanned":"false",
+        "roles":[],
+        "skype":"johndoe2",
+        "lastName":"doe2",
+        "firstName":"john"
+        },
+        "message":"Hello, this is my message!"
+    }
+]
+
+Get recent private message in form of dialog with user of john1
+GET /api/messages/john1
+< 200
+< Content-Type: application/json
+[
+    {
+        "to": "523ea525e251a514514135325"
+        "toProfile":{
+        "username":"john1",
+        "gravatar":"https://secure.gravatar.com/avatar/02ba513b62ef9f2f7798b9bac1ccf822.jpg?s=80&d=wavatar&r=g",
+        "lang":"en",
+        "root":false,
+        "isBanned":"false",
+        "roles":[],
+        "skype":"johndoe1",
+        "lastName":"doe1",
+        "firstName":"john"
+        },
+        "from": "523ea525e251a514514135326",
+        "fromProfile":{
+        "username":"john2",
+        "gravatar":"https://secure.gravatar.com/avatar/02ba513b62ef9f2f7798b9bac1ccf822.jpg?s=80&d=wavatar&r=g",
+        "lang":"en",
+        "root":false,
+        "isBanned":"false",
+        "roles":[],
+        "skype":"johndoe2",
+        "lastName":"doe2",
+        "firstName":"john"
+        },
+        "message":"Hello, this is my message!"
+    },
+        {
+        "to": "523ea525e251a514514135325"
+        "toProfile":{
+        "username":"john1",
+        "gravatar":"https://secure.gravatar.com/avatar/02ba513b62ef9f2f7798b9bac1ccf822.jpg?s=80&d=wavatar&r=g",
+        "lang":"en",
+        "root":false,
+        "isBanned":"false",
+        "roles":[],
+        "skype":"johndoe1",
+        "lastName":"doe1",
+        "firstName":"john"
+        },
+        "from": "523ea525e251a514514135326",
+        "fromProfile":{
+        "username":"john2",
+        "gravatar":"https://secure.gravatar.com/avatar/02ba513b62ef9f2f7798b9bac1ccf822.jpg?s=80&d=wavatar&r=g",
+        "lang":"en",
+        "root":false,
+        "isBanned":"false",
+        "roles":[],
+        "skype":"johndoe2",
+        "lastName":"doe2",
+        "firstName":"john"
+        },
+        "message":"Hello, this is my message!"
+    },
+        {
+        "to": "523ea525e251a514514135325"
+        "toProfile":{
+        "username":"john1",
+        "gravatar":"https://secure.gravatar.com/avatar/02ba513b62ef9f2f7798b9bac1ccf822.jpg?s=80&d=wavatar&r=g",
+        "lang":"en",
+        "root":false,
+        "isBanned":"false",
+        "roles":[],
+        "skype":"johndoe1",
+        "lastName":"doe1",
+        "firstName":"john"
+        },
+        "from": "523ea525e251a514514135326",
+        "fromProfile":{
+        "username":"john2",
+        "gravatar":"https://secure.gravatar.com/avatar/02ba513b62ef9f2f7798b9bac1ccf822.jpg?s=80&d=wavatar&r=g",
+        "lang":"en",
+        "root":false,
+        "isBanned":"false",
+        "roles":[],
+        "skype":"johndoe2",
+        "lastName":"doe2",
+        "firstName":"john"
+        },
+        "message":"Hello, this is my message!"
+    }
+]
+
+Send message to user john1 via angularJS appliation
+POST /api/messages/john1
+> Accept: application/json
+> Content-Type: application/json; charset=UTF-8
+{
+     "message": "my message"
+}
+< 201
+< Content-Type: application/json; charset=UTF-8
+{"status":201,"description":"Message is send!"}
+
+Send message to user john1 via html form submit appliation
+POST /api/messages/john1
+> Accept: application/x-www-form-urlencoded
+> Content-type: application/x-www-form-urlencoded
+{
+     "message": "my message"
+}
+< 301
+< Header: Location: back
