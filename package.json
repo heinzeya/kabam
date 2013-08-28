@@ -69,8 +69,7 @@
     "kabam-plugin-spine": "https://github.com/mykabam/kabam-plugin-spine/tarball/master",
     "kabam-plugin-users": "https://github.com/mykabam/kabam-plugin-users/tarball/master",
 
-    "kabam-plugin-private-message": "https://github.com/mykabam/kabam-plugin-private-message/tarball/master",
-    "mwc_plugin_socket_io":"https://github.com/mykabam/mwc_plugin_socket_io/tarball/master"
+    "kabam-plugin-private-message": "https://github.com/mykabam/kabam-plugin-private-message/tarball/master"
   },
   "devDependencies": {
     "mocha": "*",

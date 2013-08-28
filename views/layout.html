@@ -41,6 +41,7 @@
                     <a href="javascript:logoff()">LogOut</a>
                 </li>
 [[/myself]]
+                <li><a href="#" id="clock"></a></li>
             </ul>
         </div>
     </div>
@@ -83,8 +84,7 @@
 if (typeof io !== 'undefined') {
     var socket = io.connect();
     socket.on('broadcast', function (data) {
-        console.log(data);
-        $('#flash').append('<div class="alert alert-success"><a class="close" data-dismiss="alert">×</a><strong>'+data.message+'</strong></div>');
+        $('#clock').html(data.time);
     });
     socket.on('notify', function (data) {
         console.log(data);
@@ -96,7 +96,7 @@ function logoff() {
         window.location.href = '/';
     });
 }
-setTimeout(function () {
+setInterval(function () {
     $('div.alert').hide('slow');
 }, 5000);
 </script>

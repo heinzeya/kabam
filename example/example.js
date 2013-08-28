@@ -17,6 +17,9 @@ var kabam = Kabam({
   },
   "spine": {
     'domains': ['urgentTasks']
+  },
+  'io':{
+    'loglevel':5
   }
 });
 
@@ -27,14 +30,11 @@ kabam.extendRoutes(function (core) {
 });
 
 //kabam.start();
-//kabam.startCluster();
-
-kabam.start('app');//prepare application
-kabam.mwc_sio.listenWithSocketIo(3000);
+kabam.startCluster();
 
 setInterval(function(){
-  kabam.emit('broadcast',{'message': (''+Math.random())});
-},5000);
+  kabam.emit('broadcast',{'time': new Date().toLocaleTimeString()});
+},500);
 
 /*/
 //promote users to root

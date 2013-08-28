@@ -32,7 +32,6 @@ module.exports = exports = function (config) {
   //rest api for mongoose models
   kabam.usePlugin(require('kabam-plugin-users'));
 
-  kabam.usePlugin(require('mwc_plugin_socket_io'));
   //task queue
   if (config.spine) {
     //kabam.usePlugin(require('kabam-plugin-spine'));
