@@ -81,6 +81,7 @@ Exposed API
   });
 
 ```
+
   `redis`. Kabam can spawn ready to work redis clients by command [kabam.createRedisClient](http://ci.monimus.com/docs/#/api/kabamKernel.createRedisClient)
 
 ```javascript
@@ -94,7 +95,74 @@ Exposed API
 ```
 
   `Event emmiter` - kabam inherites the event emmiting capabilities from kernel, and kernel inherits it from [nodejs event emmiter](http://nodejs.org/api/events.html)
+  For now kabam emits events on various of situation. They are mainly documented here [http://ci.monimus.com/docs/#/api/kabamKernel.on](http://ci.monimus.com/docs/#/api/kabamKernel.on)
+  For example,
 
+```javascript
+
+    kabam.on('http',function(log){ //basic http logger
+      if(log.username){
+        console.log('User "'+log.username+'" made '+log.method+' request to page '+log.uri + ' from IP of '.log.ip);
+      } else {
+        console.log('User "Anonimus" made '+log.method+' request to page '+log.uri + ' from IP of '.log.ip);
+      }
+    });
+
+    //event handler for user being registered
+    kabamKernel.on('users:signUp', function(user){
+       if(user.email === 'freddyKrugger@example.org'){
+          user.ban(function(err){
+            if(err) throw err;
+          })
+       } else {
+         console.log('Welcome, '+user.username + '!');
+       }
+    });
+
+
+```
+
+HTTP - REST API
+================
+
+Routes, related to user authorization and authentication.
+POST requests can be simple html form submits or can be application/json types.
+If post request have type application/json, kabam responds with application/json page.
+If request is from form submit, browser is redirected with 302 code.
+There is a CSRF protection present - client have to include the value of cookie of
+`CSRF-TOKEN` in each POST/PUT/DELETE requests as a field of `_csrf`. When submiting the form this
+value is usually printed in form and in views like this:
+
+```html
+
+    <input type="hidden" name="_csrf" value="[[_csrf]"/>
+
+```
+
+
+For non authorized user there is this routes present :
+
+- `GET /auth/google` - try to autorize user via Google Account  by oAuth. If user with this email is not present in database, we create his/her account with verified gmail address, but without username and password. When user starts work with site, he\she prompted to enter them.
+- `GET /auth/twitter` - try to autorize user via Twitter Account by oAuth
+- `GET /auth/github` - try to autorize user via Github Account  by oAuth
+- `GET /auth/facebook` - try to autorize user via Facebook Account  by oAuth
+- `GET /auth/confirm/veryLongHashKey` - usually this links are recieved by email after registration.
+- `GET /login` - Page to singin\signup.
+- `POST /auth/login` - authorize by login and password with two mandatory parameters - `username` and `password`.
+- `POST /auth/signup` - create new user account with 3 mandatory parameters - `username`,`email` and `password`.
+- `POST /auth/isBusy` - route to be executed by ajax to determine, if username or email is in use. Two mandatory parameters - `username` and `email`. Response is a JSON object with information about it, like this - `{ 'username':'OK', 'email': 'OK' }`
+- `POST /auth/completeProfile` - complete user profile (set username and password) when user tryes to register via Google account. Two mandatory parameters - `username` and `password`.
+- `GET /auth/restoreAccount` - page where one can request email with link to page to reset his password.
+- `POST /auth/restoreAccount` - send email with link to restore access to account. Mandatory paramerer - `email`.
+- `POST /auth/resetPassword` - reset password for current user. Mandatory parameters are `apiKey` and `password`.
+
+We are working on the live documentation here - [http://docs.mykabam.apiary.io/](http://docs.mykabam.apiary.io/)
+
+Documentation disclaimer
+================
+Product is at state of development. But documentation are always correct.
+It means that if feature is documented, it WORKS as documented.
+But there can be more features, that are not documented.
 
 
 
