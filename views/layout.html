@@ -87,7 +87,6 @@ if (typeof io !== 'undefined') {
         $('#clock').html(data.time);
     });
     socket.on('notify', function (data) {
-        console.log(data);
         $('#flash').append('<div class="alert alert-info"><a class="close" data-dismiss="alert">×</a><strong>'+data.message+'</strong></div>');
     });
 }
