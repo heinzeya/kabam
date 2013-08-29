@@ -17,6 +17,9 @@ var kabam = Kabam({
   },
   "spine": {
     'domains': ['urgentTasks']
+  },
+  'io':{
+    'loglevel':5
   }
 });
 
@@ -24,10 +27,25 @@ kabam.extendRoutes(function (core) {
   core.app.get('/', function (request, response) {
     response.render('index', {userAgent: request.headers['user-agent'], title: 'Welcome!'})
   });
+
+  core.app.get('/hello', function(request,response){
+    if(request.user){
+      setTimeout(function(){
+        request.user.notify('sio','Hello! '+request.user.username);
+      },1000);
+    } else {
+
+    }
+    response.redirect('back');
+  });
 });
 
-//kabam.start();
-kabam.startCluster();
+kabam.start();
+//kabam.startCluster();
+
+setInterval(function(){
+  kabam.emit('broadcast',{'time': new Date().toLocaleTimeString()});
+},500);
 
 /*/
 //promote users to root

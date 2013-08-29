@@ -41,10 +41,12 @@
                     <a href="javascript:logoff()">LogOut</a>
                 </li>
 [[/myself]]
+                <li><a href="#" id="clock"></a></li>
             </ul>
         </div>
     </div>
 </nav>
+<div id="flash">
 [[#flash]]
 [[#error]]
 <div class="alert alert-error">
@@ -65,6 +67,7 @@
 </div>
 [[/info]]
 [[/flash]]
+</div>
 
 <div class="container">
     <div class="row-fluid">
@@ -78,14 +81,23 @@
 </div>
 
 <script type="text/javascript">
-    function logoff() {
-        $.post('/auth/logout', {'_csrf': "[[csrf]]" }, function (data) {
-            window.location.href = '/';
-        });
-    }
-    setTimeout(function () {
-        $('div.alert').hide('slow');
-    }, 5000);
+if (typeof io !== 'undefined') {
+    var socket = io.connect();
+    socket.on('broadcast', function (data) {
+        $('#clock').html(data.time);
+    });
+    socket.on('notify', function (data) {
+        $('#flash').append('<div class="alert alert-info"><a class="close" data-dismiss="alert">×</a><strong>'+data.message+'</strong></div>');
+    });
+}
+function logoff() {
+    $.post('/auth/logout', {'_csrf': "[[csrf]]" }, function (data) {
+        window.location.href = '/';
+    });
+}
+setInterval(function () {
+    $('div.alert').hide('slow');
+}, 5000);
 </script>
 </body>
 </html>
