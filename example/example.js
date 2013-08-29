@@ -19,7 +19,7 @@ var kabam = Kabam({
     'domains': ['urgentTasks']
   },
   'io':{
-    'loglevel':5
+    'loglevel':1
   }
 });
 
