@@ -332,13 +332,13 @@ POST /auth/myProfile
 < Header: Location: back
 
 
+
 -- kabam-plugin-rest --
 
----
+
 Classic REST interface for every kabam mongoose data model present.
 Consider that the current user is root, and he tryes to edit current users via rest full api.
 If user is not root, nothing is shown in case of users
----
 
 Get all users
 GET /api/rest/user
@@ -386,7 +386,6 @@ GET /api/rest/user
 ]
 }
 
-
 Get one particular user
 GET /api/rest/user/:_id
 < 200
@@ -412,9 +411,18 @@ GET /api/rest/user/:_id
             "salt" : "223817bf61bb3e962efb56a42d8324a3831155ed4ee2a099f6ac83ccf534062b3e470f4f3ec57097312d8475bfd748ea41ba1682668d3bc18b74c6b3300aeaf3" , 
             "username" : "vodolaz095"
         }
+
+Update one user
+PUT /api/rest/user/:_id
+< 202
+< Content-Type: application/json
         
-        
-        
+
+
+Delete one user
+DELETE /api/rest/user/:_id
+< 202
+< Content-Type: application/json
         
 
 
