@@ -66,8 +66,8 @@
     "kabam-plugin-spine": "https://github.com/mykabam/kabam-plugin-spine/tarball/master",
     "kabam-plugin-users": "https://github.com/mykabam/kabam-plugin-users/tarball/master",
     "kabam-plugin-private-message": "https://github.com/mykabam/kabam-plugin-private-message/tarball/master",
-    "kabam-core-web-frontend": "git+https://github.com/mykabam/core-web-frontend.git",
-    "express": "~3.3.7"
+    "kabam-core-web-frontend": "https://github.com/mykabam/core-web-frontend/tarball/master",
+    "kabam-plugin-logger-file": "https://github.com/mykabam/kabam-plugin-logger-file/tarball/master"
   },
   "devDependencies": {
     "mocha": "*",

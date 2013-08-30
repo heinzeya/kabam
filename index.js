@@ -1,6 +1,4 @@
-var Kernel = require('kabam-kernel'),
-  express = require('express'),
-  path = require('path');
+var Kernel = require('kabam-kernel');
 
 module.exports = exports = function (config) {
   var kabam = Kernel(config);
@@ -56,5 +54,6 @@ module.exports = exports = function (config) {
     //kabam.usePlugin(require('kabam-plugin-spine'));
   }
 
+  kabam.usePlugin(require('kabam-plugin-logger-file'));
   return kabam;
 };
