@@ -20,7 +20,8 @@ var kabam = Kabam({
   },
   'io':{
     'loglevel':1
-  }
+  },
+  'limitWorkers':2
 });
 
 kabam.extendRoutes(function (core) {
@@ -40,8 +41,8 @@ kabam.extendRoutes(function (core) {
   });
 });
 
-kabam.start();
-//kabam.startCluster();
+//kabam.start();
+kabam.startCluster();
 
 setInterval(function(){
   kabam.emit('broadcast',{'time': new Date().toLocaleTimeString()});
