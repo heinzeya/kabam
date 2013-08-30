@@ -19,7 +19,7 @@ module.exports = exports = function (config) {
   kabam.usePlugin(require('kabam-plugin-private-message'));
 
 //geoip
-  kabam.usePlugin(require('kabam-plugin-geoip'));
+//  kabam.usePlugin(require('kabam-plugin-geoip'));
 
 //enable plugin to send emails
   if (config.emailConfig) {
@@ -37,5 +37,6 @@ module.exports = exports = function (config) {
     //kabam.usePlugin(require('kabam-plugin-spine'));
   }
 
+  kabam.usePlugin(require('kabam-plugin-logger-file'));
   return kabam;
 };
