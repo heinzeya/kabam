@@ -1,6 +1,6 @@
 exports.name = 'Dogs';
-exports.initFunction = function (mongoose, config) {
-  var DogsSchema = new mongoose.Schema({
+exports.initFunction = function (kabam) {
+  var DogsSchema = new kabam.mongoose.Schema({
     'nickname': String
   });
 
@@ -8,5 +8,5 @@ exports.initFunction = function (mongoose, config) {
     nickname: 1
   });
 
-  return mongoose.model('dogs', DogsSchema);
+  return  kabam.mongoConnection.model('dogs', DogsSchema);
 }
