@@ -1,0 +1,13 @@
+{
+  "__comment":"Values prepended by __ are comments to actual values, without __ on the beginning",
+  "spine": {
+    "domains": ["urgentTasks","normalTasks","lowPriorityTasks"]
+  },
+  "io":{
+    "enabled":true,
+    "loglevel":1,
+    "__loglevel":"Log level for socket.io. 10 - very verbose, 1 - less verbose."
+  },
+  "limitWorkers":2,
+  "__limitWorkers":"This value allows us to limit max number of worker processes spawn by kabam.startCluster() command. If this value is not set, we spawn number of workers equal to number of CPU cores"
+}
