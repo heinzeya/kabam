@@ -5,6 +5,20 @@
     [[#css]]styles/main.css[[/css]]
 </head>
 <body>
+<div class="navbar navbar-static-top">
+    <div class="navbar-inner">
+        <div class="container">
+            <a class="brand" href="#">Kabam</a>
+            <ul class="nav" ng-hide="authService.isAuthenticated()" ng-cloak>
+                <li><a ui-sref='login'>Log in</a></li>
+                <li><a ui-sref='signup'>Sign up</a></li>
+            </ul>
+            <ul class="nav" ng-show="authService.isAuthenticated()" ng-cloak>
+                <li><a href="#" ng-click="authService.logOut()">Log out</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
 [[={{ }}=]]
 {{{ yield }}}
 {{=[[ ]]=}}
