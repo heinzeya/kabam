@@ -1,5 +1,7 @@
 {
   "__comment":"Values prepended by __ are comments to actual values, without __ on the beginning",
+  "__app.json":"This config file contains application parameters, there is no sensitive data and this file can be commited to public repository."
+
   "spine": {
     "domains": ["urgentTasks","normalTasks","lowPriorityTasks"]
   },
