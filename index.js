@@ -55,6 +55,8 @@ module.exports = exports = function (config) {
   }
 
   kabam.usePlugin(require('kabam-plugin-logger-file'));
+
   kabam.usePlugin(require('kabam-plugin-logger-http-mongo'));
+  kabam.usePlugin(require('kabam-plugin-logger-error-mongo'));
   return kabam;
 };
