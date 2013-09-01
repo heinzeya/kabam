@@ -31,21 +31,6 @@ program
             cb(null, name);
           });
         },
-        'hostUrl': function (cb) {
-          program.prompt('What is the hostname of your server? Default is "' + ('' + os.hostname() + '').green + '": ', function (name) {
-            cb(null, name);
-          });
-        },
-        'mongoUrl': function (cb) {
-          program.prompt('What is the mongoUrl of your project? Default is "mongo://localhost/kabam_dev" or it can be extracted from environment values: ', function (name) {
-            cb(null, name);
-          });
-        },
-        'redisUrl': function (cb) {
-          program.prompt('What is the redis url of your project? Default is "redis://localhost:6379" or it can be extracted from environment values: ', function (name) {
-            cb(null, name);
-          });
-        },
         'gitHubName': function (cb) {
           program.prompt('What is your github username?: ', function (name) {
             cb(null, name);
@@ -53,41 +38,6 @@ program
         }
       }, function (err, input) {
         async.parallel({
-          'createConfigJson': function (cb) {
-            var config = {
-              'emailConfig': 'myemail@gmail.com:myLoooongPassword',
-              "passport": {
-                "GITHUB_CLIENT_ID": "--insert-github-client-id-here--",
-                "GITHUB_CLIENT_SECRET": "--insert-github-client-secret-here--",
-                "TWITTER_CONSUMER_KEY": "--insert-twitter-consumer-key-here--",
-                "TWITTER_CONSUMER_SECRET": "--insert-twitter-consumer-secret-here--",
-                "FACEBOOK_APP_ID": "--insert-facebook-app-id-here--",
-                "FACEBOOK_APP_SECRET": "--insert-facebook-app-secret-here--"
-              },
-              "spine": {
-                'domains': ['urgentTasks']
-              }};
-
-            if (input.hostUrl) {
-              config.hostUrl = 'http://'+input.hostUrl+'/';
-            } else {
-              config.hostUrl = 'http://'+os.hostname()+'/';
-            }
-
-            if (input.mongoUrl) {
-              config.mongoUrl = input.mongoUrl;
-            } else {
-              config.mongoUrl = 'mongo://localhost/kabam_dev';
-            }
-
-            if (input.redisUrl) {
-              config.redisUrl = input.redisUrl;
-            } else {
-              config.redisUrl = 'redis://localhost:6379';
-            }
-
-            fs.writeFile(process.cwd() + '/config.json', JSON.stringify(config, null, 2), cb);
-          },
           'createPackagejson': function (cb) {
             var
               projectName = (input.projectName) ? (input.projectName) : 'my-kabam-project',
