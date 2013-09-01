@@ -68,6 +68,7 @@
     "kabam-plugin-private-message": "https://github.com/mykabam/kabam-plugin-private-message/tarball/master",
     "kabam-core-web-frontend": "https://github.com/mykabam/core-web-frontend/tarball/master",
     "kabam-plugin-logger-file": "https://github.com/mykabam/kabam-plugin-logger-file/tarball/master",
+    "kabam-plugin-logger-http-mongo": "https://github.com/mykabam/kabam-plugin-logger-http-mongo/tarball/master",
     "bower":"*"
   },
   "devDependencies": {
