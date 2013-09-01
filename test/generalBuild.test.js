@@ -46,7 +46,7 @@ describe('npm can build and run this application',function(){
 
 
   it('it starts HTTP server on port localhost:3008', function () {
-    response.statusCode.should.equal(403);//this is ok
+    response.statusCode.should.equal(200);//this is ok
   });
 
   it('this server runs a ExpressJS application', function () {
