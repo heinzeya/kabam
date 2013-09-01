@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="en" ng-app>
+<html lang="en" ng-app="CoreFrontend">
 <head>
     <meta charset="utf-8">
-    <title>[[title]]</title>
+    <title ng-bind="$state.current.name">Kabam</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="[[description]]"/>
     <meta name="keywords" content="[[keywords]]"/>
@@ -12,43 +12,25 @@
     [[^doIndex]]
     <meta name="robots" content="none">
     [[/doIndex]]
-    <style>
-        body {
-            padding-top: 60px;
-            height: 100%;
-        }
-    </style>
-[[#css]]
-    <link type="text/css" href="[[url]]" rel="stylesheet" [[#media]]media="[[media]]"[[/media]]/>
-[[/css]]
-[[#javascripts]]
-    <script [[#async]]async="async"[[/async]] type="text/javascript" src="[[url]]"></script>
-[[/javascripts]]
+    [[#css]]styles/main.css[[/css]]
     <link rel="shortcut icon" href="/favicon.ico">
 </head>
 <body>
-<nav class="navbar navbar-fixed-top">
+<div class="navbar navbar-static-top">
     <div class="navbar-inner">
         <div class="container">
-            <ul class="nav">
-                <li class="active brand">[[title]]</li>
-                <li class="divider-vertical"></li>
-[[#myself]]
-                <li>
-                    <a href="/admin/users">Users' list</a>
-                </li>
-                <li>
-                    <a href="/auth/myProfile">[[username]]</a>
-                </li>
-                <li>
-                    <a href="javascript:logoff()">LogOut</a>
-                </li>
-[[/myself]]
-                <li><a href="#" id="clock"></a></li>
+            <a class="brand" href="#">Kabam</a>
+            <ul class="nav" ng-hide="authService.isAuthenticated()" ng-cloak>
+                <li><a ui-sref='login'>Log in</a></li>
+                <li><a ui-sref='signup'>Sign up</a></li>
+            </ul>
+            <ul class="nav pull-right" ng-show="authService.isAuthenticated()" ng-cloak>
+                <li><a ui-sref="profile">{{ authService.user.username }}</a></li>
+                <li><a href="#" ng-click="authService.logOut()">Log out</a></li>
             </ul>
         </div>
     </div>
-</nav>
+</div>
 <div id="flash">
 [[#flash]]
 [[#error]]
@@ -82,8 +64,15 @@
         <p>&copy; 2013 - <a href="https://github.com/mykabam">MyKabam</a></p>
     </div>
 </div>
-
+[[#js]]kabam/app.js[[/js]]
 <script type="text/javascript">
+    window.CONFIG = {
+        signUpURL: '/auth/signup',
+        loginURL: '/auth/login',
+        logoutURL: '/auth/logout'
+    };
+    window.USER = [[& user ]];
+
 if (typeof io !== 'undefined') {
     var socket = io.connect();
     socket.on('broadcast', function (data) {
