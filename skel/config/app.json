@@ -20,9 +20,12 @@
 
 
   "logs":{
+    "filelog": true,
+    "__filelog":"Boolean. Store logs in logs/ directory",
+
     "httpMongo":true,
     "__httpMongo":"Boolean. Enable logging HTTP requests in mongo database",
-    "errorMongo":true
-    "__errorMongo":"Boolean. Enable logging errors in mongo database",
+    "errorMongo":true,
+    "__errorMongo":"Boolean. Enable logging errors in mongo database"
   }
 }

@@ -54,8 +54,10 @@ module.exports = exports = function (config) {
     //kabam.usePlugin(require('kabam-plugin-spine'));
   }
 
-  kabam.usePlugin(require('kabam-plugin-logger-file'));
   if(config.logs){
+    if(config.logs.filelog===true){
+      kabam.usePlugin(require('kabam-plugin-logger-file'));
+    }
     if(config.logs.httpMongo===true){
       kabam.usePlugin(require('kabam-plugin-logger-http-mongo'));
     }
