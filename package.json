@@ -8,7 +8,7 @@
     "npm": "1.3.x"
   },
   "scripts": {
-    "start": "node example/example.js",
+    "start": "node skel/index.js",
     "test": "./node_modules/.bin/grunt test"
   },
   "bin": {
