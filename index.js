@@ -46,7 +46,7 @@ module.exports = exports = function (config) {
     core.app.locals.mincerENV.prependPath('public/bower_components/kabam-core-web-frontend/public/components');
     // this is needed for styles only, since they are lying in `/public/styles`, so we append public to the end
     // just to use `/assets/styles/<style-name>`
-    core.app.locals.mincerENV.appendPath('public/bower_components/kabam-core-web-frontend/public')
+    core.app.locals.mincerENV.appendPath('public/bower_components/kabam-core-web-frontend/public');
   });
 
   //task queue
