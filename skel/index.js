@@ -6,7 +6,7 @@ var models = fs.readdirSync('./models'),
   serviceConfig = require('./config/service.json'),
   appConfig = require('./config/app.json');
 
-function config(serviceConfig, appConfig) {
+function createConfig(serviceConfig, appConfig) {
   var config = {};
   for (var prop in serviceConfig) {
     config[prop] = serviceConfig[prop];
@@ -17,7 +17,7 @@ function config(serviceConfig, appConfig) {
   return config;
 }
 
-var main = kabam(config(serviceConfig, appConfig));
+var main = kabam(createConfig(serviceConfig, appConfig));
 
 models.map(function(modelName) {
   var modelObj = require('./models/' + modelName);
@@ -25,9 +25,9 @@ models.map(function(modelName) {
 });
 
 routes.map(function(routeName) {
-  console.log(routeName);
+  //console.log(routeName);
   main.extendRoutes(require('./routes/'+routeName));
 });
 
-// or main.startCluster() to use cluster
-main.start();
+//main.startCluster();//to start application as cluster
+main.start();//to start single process
