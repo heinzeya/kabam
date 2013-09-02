@@ -84,6 +84,18 @@ program
               };
             fs.writeFile(process.cwd() + '/package.json', JSON.stringify(packageJson, null, 2), cb);
           },
+          'createBowerJson': function(cb){
+            var
+              projectName = (input.projectName) ? (input.projectName) : 'my-kabam-project',
+              bowerJson = {
+                "name": projectName,
+                "version": "0.0.1",
+                "dependencies": {
+                  "kabam": "https://github.com/mykabam/kabam.git"
+                }
+              };
+            fs.writeFile(process.cwd() + '/bower.json', JSON.stringify(bowerJson, null, 2), cb);
+          },
           'moveFiles': function (cb) {
             ncp(__dirname + '/../skel', process.cwd(), cb);
           }
@@ -92,7 +104,8 @@ program
             throw err;
           }
           console.log('Project created!'.green);
-          console.log('We need to install all needed modules by running ' + '$ npm install'.bold + ' in the folder on newly created project!');
+          console.log('We need to install all needed modules by running ' + '$ npm install'.bold +
+                      ' and ' +'$ bower install'.bold+ ' in the folder on newly created project!');
           console.log('Than we need to run ' + '$ kabam.js publishAssets'.bold + ' to install views, public files and other things from plugins');
           process.exit(0);
         });
