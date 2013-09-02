@@ -29,7 +29,9 @@ module.exports = exports = function (config) {
     env.appendPath('public/bower_components/kabam-core-web-frontend/public');
     env.appendPath('public');
 
+    // Serve everything from /assets endpoint
     kernel.app.use('/assets', new mincer.createServer(env));
+    // Helpers that help generate script and link tags
     kernel.app.locals.mincerHelpers = mincerHelpers.makeHelpers(env);
   });
 
@@ -37,36 +39,24 @@ module.exports = exports = function (config) {
     return express.static(path.join(__dirname, 'public'));
   });
 
-  kabam.extendMiddleware(function(kernel){
+  kabam.catchAll(function(kernel){
     var helpers = kernel.app.locals.mincerHelpers;
-    return function(request,response,next){
-      var  user = {};
-      if (request.user) {
-        user = request.user.export();
-      }
-
-      response.locals.user =  JSON.stringify(user).replace('</', '<\/');
-      response.locals.css = helpers.css;
-      response.locals.js = helpers.js;
-      next();
-    };
-  });
-
-  kabam.catchAll(function(request, response){
-    try{
+    return function(request, response){
+      var user = {};
       if(request.user){
         response.status(200);
+        user = request.user.export();
       } else {
         response.status(401);
       }
       response.render('angular/index', {
-        'layout': 'angular/layout',
-        'title':'KabamApplication',
-        'doIndex':false
+        layout: false,
+        title: 'KabamApplication',
+        doIndex: false,
+        user: JSON.stringify(user).replace('</', '<\/'),
+        css: helpers.css,
+        js: helpers.js
       });
-    }
-    catch(e){
-      response.send(404)
     }
   });
 
