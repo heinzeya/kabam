@@ -4,7 +4,7 @@ var path = require('path');
  * automatically add ngdoc directives
  */
 var processContent = function(content, srcpath) {
-  return "@ngdoc overview\n@name " + path.basename(path.dirname(srcpath)) + "\n@description\n\n" + content;
+  return '@ngdoc overview\n@name ' + path.basename(path.dirname(srcpath)) + '\n@description\n\n' + content;
 };
 
 /**
