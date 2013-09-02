@@ -29,5 +29,10 @@ routes.map(function(routeName) {
   main.extendRoutes(require('./routes/'+routeName));
 });
 
-//main.startCluster();//to start application as cluster
-main.start();//to start single process
+if(main.config.startCluster){
+  main.startCluster();//to start application as cluster
+} else {
+  main.start();//to start single process
+}
+
+
