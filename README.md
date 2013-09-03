@@ -32,25 +32,25 @@ Plugins are activated if they find proper field in config object:
 
 ```javascript
 
-    var kabam = Kabam({
-      //vvv mandatory fields vvv
-      'hostUrl':'http://vvv.msk0.ru/',
-      'mongoUrl':'mongodb://localhost/mwc_dev',
-      'secret':'Long_and_hard_secret',
-      //^^^ mandatory fields ^^^
+var kabam = Kabam({
+  // required fields
+  'hostUrl': 'http://vvv.msk0.ru/',
+  'mongoUrl': 'mongodb://localhost/mwc_dev',
+  'secret': 'Long_and_hard_secret',
 
-      'redis':'redis://mwcKernel:@localhost:6379',
-
-
-      "passport":{
-        "FACEBOOK_APP_ID":"--insert-facebook-app-id-here--", //activate autorization for facebook by /auth/facebook
-        "FACEBOOK_APP_SECRET":"--insert-facebook-app-secret-here--"
-      },
-      'emailConfig':'myemail@gmail.com:1234567', // activate  mwc_plugin_notify_by_email
-      'spine':{ //activate mwc_plugin_spine
-        'domains':['urgentTasks']
-      }
-    });
+  // optional fields
+  'redis': 'redis://mwcKernel:@localhost:6379',
+  'passport': {
+    //activate autorization for facebook by /auth/facebook
+    'FACEBOOK_APP_ID': '--insert-facebook-app-id-here--',
+    'FACEBOOK_APP_SECRET': '--insert-facebook-app-secret-here--'
+  },
+  // activate kabam-plugin-notify-email
+  'emailConfig': 'myemail@gmail.com:1234567',
+  'spine': { //activate kabam-plugin-spine
+    'domains': ['urgentTasks']
+  }
+});
 
 ```
 
