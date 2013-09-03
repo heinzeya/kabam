@@ -7,7 +7,7 @@ Higher level framework build on top of - [mwc_kernel](https://github.com/mywebcl
 
 Plugins included:
 
-- [kabam-kernel](https://github.com/mykabam/kabam-kernel) - Kernel [![Build Status](https://travis-ci.org/mykabam/kabam-kernel.png?branch=MongooseUsersRC)](https://travis-ci.org/mykabam/kabam-kernel)
+- [kabam-kernel](https://github.com/mykabam/kabam-kernel) - Kernel [![Build Status](https://travis-ci.org/mykabam/kabam-kernel.png)](https://travis-ci.org/mykabam/kabam-kernel)
 - [kabam-plugin-hogan](https://github.com/mykabam/kabam-plugin-hogan) - hoganJS template engine - [![Build Status](https://travis-ci.org/mykabam/kabam-plugin-hogan.png)](https://travis-ci.org/mykabam/kabam-plugin-hogan)
 - [kabam-plugin-welcome](https://github.com/mykabam/kabam-plugin-welcome) - static html authorization plugin
 - [kabam-plugin-my-profile](https://github.com/mykabam/kabam-plugin-my-profile) - plugin to edit my profile
