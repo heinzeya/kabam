@@ -56,7 +56,7 @@
     "commander": "1.3.2",
     "ncp": "*",
     "colors": "*",
-    "express": "3.*",
+    "express": "~3",
     "kabam-kernel": "https://github.com/mykabam/kabam-kernel/tarball/master",
     "kabam-plugin-hogan": "https://github.com/mykabam/kabam-plugin-hogan/tarball/master",
     "kabam-plugin-geoip": "https://github.com/mykabam/kabam-plugin-geoip/tarball/master",

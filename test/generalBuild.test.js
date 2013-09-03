@@ -1,5 +1,6 @@
 var Kabam = require('./../index.js'),
-  request = require('request');
+  request = require('request'),
+  should = require('should');
 
 
 var kabam = Kabam({
