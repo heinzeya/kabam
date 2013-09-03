@@ -52,23 +52,6 @@ module.exports = exports = function (config) {
     };
   });
 
-  kabam.catchAll(function(request, response){
-    try{
-      if(request.user){
-        response.status(200);
-      } else {
-        response.status(401);
-      }
-      response.render('angular/index', {
-        'layout': 'angular/layout',
-        'title':'KabamApplication',
-        'doIndex':false
-      });
-    }
-    catch(e){
-      response.send(404)
-    }
-  });
 
 //end of basic frontend
 
