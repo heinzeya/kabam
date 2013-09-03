@@ -24,8 +24,8 @@ We have an examples too, [check it out here](https://github.com/mykabam/kabam/bl
 Documentation
 =========
 
-For now Kabam object is mwcKernel object with preinstalled plugins.
-All mwcKernel api is exposed on it.
+For now Kabam object is kabamKernel object with preinstalled plugins.
+All kabamKernel api is exposed on it.
 [Please, have a good time to read more complete documentations](http://ci.monimus.com/docs/#/api).
 
 Plugins are activated if they find proper field in config object:
@@ -35,11 +35,11 @@ Plugins are activated if they find proper field in config object:
 var kabam = Kabam({
   // required fields
   'hostUrl': 'http://vvv.msk0.ru/',
-  'mongoUrl': 'mongodb://localhost/mwc_dev',
+  'mongoUrl': 'mongodb://localhost/kabam_dev',
   'secret': 'Long_and_hard_secret',
 
   // optional fields
-  'redis': 'redis://mwcKernel:@localhost:6379',
+  'redis': 'redis://kabamKernel:@localhost:6379',
   'passport': {
     //activate autorization for facebook by /auth/facebook
     'FACEBOOK_APP_ID': '--insert-facebook-app-id-here--',
