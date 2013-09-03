@@ -1,7 +1,7 @@
 Kabam
 ========
 
-Higher level framework build on top of - [mwc_kernel](https://github.com/mywebclass/mwc_kernel)
+Higher level framework build on top of [Kabam's kernel](https://github.com/mykabam/kabam-kernel)
 
 [![Build Status](https://travis-ci.org/mykabam/kabam.png)](https://travis-ci.org/mykabam/kabam)
 
