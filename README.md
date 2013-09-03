@@ -69,16 +69,25 @@ Exposed API
 
 ```javascript
 
-  kabam.model.User.findOne({'username':'vodolaz095'}, function(err,userFound){
-    userFound.notify('email','Hello!');
-    usesFound.setPassword('someNewPassword',function(err){
-      userFound.notify('email','Your new password is "someNewPassword"');
+  kabam
+    .model
+    .User
+    .findOne({
+      'username': 'vodolaz095'
+    }, function(err, userFound) {
+      userFound.notify('email', 'Hello!');
+      usesFound.setPassword('someNewPassword', function(err) {
+        userFound.notify('email', 'Your new password is "someNewPassword"');
+      });
     });
-  });
 
-  kabam.model.User.signUp('vodolaz095','vodolaz096@example.org', 'SomeLooongAndHardPassw0rd', function(err,userCreated){
-    userFound.notify('email','Hello! Verify your email please, see our previous message!');
-  });
+  kabam
+    .model
+    .User
+    .signUp('vodolaz095', 'vodolaz096@example.org', 'SomeLooongAndHardPassw0rd',
+      function(err, userCreated) {
+        userFound.notify('email', 'Hello! Verify your email please, see our previous message!');
+      });
 
 ```
 
@@ -87,8 +96,8 @@ Exposed API
 ```javascript
 
   var client = kabam.createRedisClient();
-  client.set('someValue','1',function(err){
-    if(err) throw err;
+  client.set('someValue', '1', function(err) {
+    if (err) throw err;
     console.log('value is set!');
   });
 
@@ -100,25 +109,27 @@ Exposed API
 
 ```javascript
 
-    kabam.on('http',function(log){ //basic http logger
-      if(log.username){
-        console.log('User "'+log.username+'" made '+log.method+' request to page '+log.uri + ' from IP of '.log.ip);
-      } else {
-        console.log('User "Anonimus" made '+log.method+' request to page '+log.uri + ' from IP of '.log.ip);
-      }
-    });
+  kabam.on('http', function(log) { //basic http logger
+    if (log.username) {
+      console.log('User "' + log.username +
+        '" made ' + log.method + ' request to page ' + log.uri +
+        ' from IP of '.log.ip);
+    } else {
+      console.log('User "Anonimus" made ' + log.method +
+        ' request to page ' + log.uri + ' from IP of '.log.ip);
+    }
+  });
 
-    //event handler for user being registered
-    kabamKernel.on('users:signUp', function(user){
-       if(user.email === 'freddyKrugger@example.org'){
-          user.ban(function(err){
-            if(err) throw err;
-          })
-       } else {
-         console.log('Welcome, '+user.username + '!');
-       }
-    });
-
+  //event handler for user being registered
+  kabamKernel.on('users:signUp', function(user) {
+    if (user.email === 'freddyKrugger@example.org') {
+      user.ban(function(err) {
+        if (err) throw err;
+      })
+    } else {
+      console.log('Welcome, ' + user.username + '!');
+    }
+  });
 
 ```
 
