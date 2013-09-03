@@ -1,7 +1,7 @@
 Kabam
 ========
 
-Higher level framework build on top of - [mwc_kernel](https://github.com/mywebclass/mwc_kernel)
+Higher level framework build on top of [Kabam's kernel](https://github.com/mykabam/kabam-kernel)
 
 [![Build Status](https://travis-ci.org/mykabam/kabam.png)](https://travis-ci.org/mykabam/kabam)
 
@@ -24,33 +24,33 @@ We have an examples too, [check it out here](https://github.com/mykabam/kabam/bl
 Documentation
 =========
 
-For now Kabam object is mwcKernel object with preinstalled plugins.
-All mwcKernel api is exposed on it.
+For now Kabam object is kabamKernel object with preinstalled plugins.
+All kabamKernel api is exposed on it.
 [Please, have a good time to read more complete documentations](http://ci.monimus.com/docs/#/api).
 
 Plugins are activated if they find proper field in config object:
 
 ```javascript
 
-    var kabam = Kabam({
-      //vvv mandatory fields vvv
-      'hostUrl':'http://vvv.msk0.ru/',
-      'mongoUrl':'mongodb://localhost/mwc_dev',
-      'secret':'Long_and_hard_secret',
-      //^^^ mandatory fields ^^^
+var kabam = Kabam({
+  // required fields
+  'hostUrl': 'http://vvv.msk0.ru/',
+  'mongoUrl': 'mongodb://localhost/kabam_dev',
+  'secret': 'Long_and_hard_secret',
 
-      'redis':'redis://mwcKernel:@localhost:6379',
-
-
-      "passport":{
-        "FACEBOOK_APP_ID":"--insert-facebook-app-id-here--", //activate autorization for facebook by /auth/facebook
-        "FACEBOOK_APP_SECRET":"--insert-facebook-app-secret-here--"
-      },
-      'emailConfig':'myemail@gmail.com:1234567', // activate  mwc_plugin_notify_by_email
-      'spine':{ //activate mwc_plugin_spine
-        'domains':['urgentTasks']
-      }
-    });
+  // optional fields
+  'redis': 'redis://kabamKernel:@localhost:6379',
+  'passport': {
+    //activate autorization for facebook by /auth/facebook
+    'FACEBOOK_APP_ID': '--insert-facebook-app-id-here--',
+    'FACEBOOK_APP_SECRET': '--insert-facebook-app-secret-here--'
+  },
+  // activate kabam-plugin-notify-email
+  'emailConfig': 'myemail@gmail.com:1234567',
+  'spine': { //activate kabam-plugin-spine
+    'domains': ['urgentTasks']
+  }
+});
 
 ```
 
@@ -69,16 +69,25 @@ Exposed API
 
 ```javascript
 
-  kabam.model.User.findOne({'username':'vodolaz095'}, function(err,userFound){
-    userFound.notify('email','Hello!');
-    usesFound.setPassword('someNewPassword',function(err){
-      userFound.notify('email','Your new password is "someNewPassword"');
+  kabam
+    .model
+    .User
+    .findOne({
+      'username': 'vodolaz095'
+    }, function(err, userFound) {
+      userFound.notify('email', 'Hello!');
+      usesFound.setPassword('someNewPassword', function(err) {
+        userFound.notify('email', 'Your new password is "someNewPassword"');
+      });
     });
-  });
 
-  kabam.model.User.signUp('vodolaz095','vodolaz096@example.org', 'SomeLooongAndHardPassw0rd', function(err,userCreated){
-    userFound.notify('email','Hello! Verify your email please, see our previous message!');
-  });
+  kabam
+    .model
+    .User
+    .signUp('vodolaz095', 'vodolaz096@example.org', 'SomeLooongAndHardPassw0rd',
+      function(err, userCreated) {
+        userFound.notify('email', 'Hello! Verify your email please, see our previous message!');
+      });
 
 ```
 
@@ -87,8 +96,8 @@ Exposed API
 ```javascript
 
   var client = kabam.createRedisClient();
-  client.set('someValue','1',function(err){
-    if(err) throw err;
+  client.set('someValue', '1', function(err) {
+    if (err) throw err;
     console.log('value is set!');
   });
 
@@ -100,25 +109,27 @@ Exposed API
 
 ```javascript
 
-    kabam.on('http',function(log){ //basic http logger
-      if(log.username){
-        console.log('User "'+log.username+'" made '+log.method+' request to page '+log.uri + ' from IP of '.log.ip);
-      } else {
-        console.log('User "Anonimus" made '+log.method+' request to page '+log.uri + ' from IP of '.log.ip);
-      }
-    });
+  kabam.on('http', function(log) { //basic http logger
+    if (log.username) {
+      console.log('User "' + log.username +
+        '" made ' + log.method + ' request to page ' + log.uri +
+        ' from IP of '.log.ip);
+    } else {
+      console.log('User "Anonimus" made ' + log.method +
+        ' request to page ' + log.uri + ' from IP of '.log.ip);
+    }
+  });
 
-    //event handler for user being registered
-    kabamKernel.on('users:signUp', function(user){
-       if(user.email === 'freddyKrugger@example.org'){
-          user.ban(function(err){
-            if(err) throw err;
-          })
-       } else {
-         console.log('Welcome, '+user.username + '!');
-       }
-    });
-
+  //event handler for user being registered
+  kabamKernel.on('users:signUp', function(user) {
+    if (user.email === 'freddyKrugger@example.org') {
+      user.ban(function(err) {
+        if (err) throw err;
+      })
+    } else {
+      console.log('Welcome, ' + user.username + '!');
+    }
+  });
 
 ```
 
