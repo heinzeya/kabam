@@ -54,23 +54,18 @@ module.exports = exports = function (config) {
     };
   });
 
-  kabam.extendRoutes(function(kernel){
-    kernel.app.get('*',function(request, response){  
-      try{
-          if(request.user){
-            response.status(200);
-          } else {
-            response.status(401);
-          }
-          response.render('angularBlank', {
-            'title':'KabamApplication',
-            'doIndex':false
-          });
-        }
-        catch(e){
-          response.send(404)
-        }
-    });
+  kabam.catchAll(function(kernel){
+    return function(request, response){
+      if(request.user){
+        response.status(200);
+      } else {
+        response.status(401);
+      }
+      response.render('angularBlank', {
+        'title':'KabamApplication',
+        'doIndex':false
+      });
+    }
   });
 
 //end of basic frontend
