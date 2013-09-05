@@ -29,7 +29,9 @@ module.exports = exports = function (config) {
     env.appendPath('public/bower_components/kabam-core-web-frontend/public');
     env.appendPath('public');
 
+    // Serve everything from /assets endpoint
     kernel.app.use('/assets', new mincer.createServer(env));
+    // Helpers that help generate script and link tags
     kernel.app.locals.mincerHelpers = mincerHelpers.makeHelpers(env);
   });
 
@@ -52,6 +54,25 @@ module.exports = exports = function (config) {
     };
   });
 
+  kabam.extendRoutes(function(kernel){
+    kernel.app.get('*',function(request, response){  
+      try{
+          if(request.user){
+            response.status(200);
+          } else {
+            response.status(401);
+          }
+          response.render('angular/index', {
+            'layout': 'angular/layout',
+            'title':'KabamApplication',
+            'doIndex':false
+          });
+        }
+        catch(e){
+          response.send(404)
+        }
+    });
+  });
 
 //end of basic frontend
 
