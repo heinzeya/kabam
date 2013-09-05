@@ -62,8 +62,7 @@ module.exports = exports = function (config) {
           } else {
             response.status(401);
           }
-          response.render('angular/index', {
-            'layout': 'angular/layout',
+          response.render('angularBlank', {
             'title':'KabamApplication',
             'doIndex':false
           });
