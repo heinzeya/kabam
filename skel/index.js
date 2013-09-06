@@ -1,5 +1,6 @@
 var kabam = require('kabam'),
-  fs = require('fs');
+  fs = require('fs'),
+  path = require('path');
 
 var models = fs.readdirSync('./models'),
   routes = fs.readdirSync('./routes'),
@@ -14,6 +15,7 @@ function createConfig(serviceConfig, appConfig) {
   for (prop in appConfig) {
     config[prop] = appConfig[prop];
   }
+  config.views = path.join(__dirname, 'views');
   return config;
 }
 
