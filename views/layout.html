@@ -64,7 +64,6 @@
         <p>&copy; 2013 - <a href="https://github.com/mykabam">MyKabam</a></p>
     </div>
 </div>
-[[#js]]kabam/app.js[[/js]]
 <script type="text/javascript">
     window.CONFIG = {
         signUpURL: '/auth/signup',
@@ -72,7 +71,9 @@
         logoutURL: '/auth/logout'
     };
     window.USER = [[& user ]];
-
+</script>
+[[#js]]kabam/app.js[[/js]]
+<script type="text/javascript">
 if (typeof io !== 'undefined') {
     var socket = io.connect();
     socket.on('broadcast', function (data) {
