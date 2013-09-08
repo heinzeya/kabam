@@ -31,6 +31,29 @@
         </div>
     </div>
 </div>
+<div id="flash">
+[[#flash]]
+[[#error]]
+<div class="alert alert-error">
+    <a class="close" data-dismiss="alert">×</a>
+    <strong>[[error]]</strong>
+</div>
+[[/error]]
+[[#success]]
+<div class="alert alert-success">
+    <a class="close" data-dismiss="alert">×</a>
+    <strong>[[success]]</strong>
+</div>
+[[/success]]
+[[#info]]
+<div class="alert alert-info">
+    <a class="close" data-dismiss="alert">×</a>
+    <strong>[[info]]</strong>
+</div>
+[[/info]]
+[[/flash]]
+</div>
+
 <div class="container">
     <div class="row-fluid">
         [[={{ }}=]]
@@ -50,5 +73,24 @@
     window.USER = [[& user ]];
 </script>
 [[#js]]kabam/app.js[[/js]]
+<script type="text/javascript">
+if (typeof io !== 'undefined') {
+    var socket = io.connect();
+    socket.on('broadcast', function (data) {
+        $('#clock').html(data.time);
+    });
+    socket.on('notify', function (data) {
+        $('#flash').append('<div class="alert alert-info"><a class="close" data-dismiss="alert">×</a><strong>'+data.message+'</strong></div>');
+    });
+}
+function logoff() {
+    $.post('/auth/logout', {'_csrf': "[[csrf]]" }, function (data) {
+        window.location.href = '/';
+    });
+}
+setInterval(function () {
+    $('div.alert').hide('slow');
+}, 5000);
+</script>
 </body>
 </html>
