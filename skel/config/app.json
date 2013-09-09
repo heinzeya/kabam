@@ -27,5 +27,10 @@
     "__httpMongo":"Boolean. Enable logging HTTP requests in mongo database",
     "errorMongo":true,
     "__errorMongo":"Boolean. Enable logging errors in mongo database"
-  }
+  },
+
+  "public": "./public",
+  "__public": "String. Path for custom static asset files (js, css, images)",
+  "views": "./views",
+  "__views": "String. Path for custome view files (html)"
 }
