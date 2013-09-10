@@ -26,7 +26,7 @@ Documentation
 
 For now Kabam object is kabamKernel object with preinstalled plugins.
 All kabamKernel api is exposed on it.
-[Please, have a good time to read more complete documentations](http://ci.monimus.com/docs/#/api).
+[Please, have a good time to read more complete documentations](http://cd.monimus.com:8080/#/api).
 
 Plugins are activated if they find proper field in config object:
 
@@ -61,9 +61,9 @@ Exposed API
  being used by this application
 
  `User model`. Kabam fully exposes kernel user model, so we can create, edit and do other user related tasks programmaticly.
- Actual documentation on User's model is published here [http://ci.monimus.com/docs/#/api/kabamKernel.model.User](http://ci.monimus.com/docs/#/api/kabamKernel.model.User)
- The user model itself is a Active Record class, build on top of [mongooseJS](http://mongoosejs.com/) schema
- The user model instance - User, is described here - [http://ci.monimus.com/docs/#/api/User](http://ci.monimus.com/docs/#/api/User)
+ Actual documentation on User's model is published here [http://cd.monimus.com:8080/#/api/User](http://cd.monimus.com:8080/#/api/User).
+ The user model itself is an Active Record class, build on top of [mongooseJS](http://mongoosejs.com/) schema.
+ The user model instance - User, is described here - [http://cd.monimus.com:8080/#/api/User](http://cd.monimus.com:8080/#/api/User)
 
   Example:
 
