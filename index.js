@@ -54,6 +54,7 @@ module.exports = exports = function (config) {
     };
   });
 
+  /* disabling catch all since we are now using hash based client routing
   kabam.catchAll(function(kernel){
     return function(request, response){
       if(request.user){
@@ -67,6 +68,7 @@ module.exports = exports = function (config) {
       });
     }
   });
+  */
 
 //end of basic frontend
 
