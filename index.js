@@ -27,7 +27,7 @@ module.exports = exports = function (config) {
     // this is needed for styles only, since they are lying in `/public/styles`, so we append public to the end
     // just to use `/assets/styles/<style-name>`
     env.appendPath('public/bower_components/kabam-core-web-frontend/public');
-    env.appendPath('public');
+    env.prependPath('public');
 
     // Serve everything from /assets endpoint
     kernel.app.use('/assets', new mincer.createServer(env));
