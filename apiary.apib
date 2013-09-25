@@ -424,6 +424,186 @@ Delete one user
 DELETE /api/rest/user/:_id
 < 202
 < Content-Type: application/json
-        
 
+-- Kabam plugin room --
 
+create group
+POST /api/groups
+> Accept: application/json
+> Content-Type: application/json;
+{
+}
+< 201
+< Content-Type: application/json;
+{
+}
+
+update groups
+POST /api/groups/:id
+> Accept: application/json
+> Content-Type: application/json;
+{
+    "descriptionPublic":"public description",
+    "descriptionForMembers": "description for members",
+    "isOpenToAll": true
+}
+< 201
+< Content-Type: application/json;
+{
+  "success":"Group updated!"
+}
+
+send comments
+POST /api/groups/createMessage/:id
+> Accept: application/json
+> Content-Type: application/json;
+{
+    "message":"this is test comment."
+}
+< 201
+< Content-Type: application/json;
+{
+  "success":"You have created message in this group!"
+}
+
+join groups
+POST /api/groups/join/:id
+> Accept: application/json
+> Content-Type: application/json;
+{
+}
+< 201
+< Content-Type: application/json;
+{
+  "status":"Welcome to group!"
+}
+
+leave groups
+POST /api/groups/leave/:id
+> Accept: application/json
+> Content-Type: application/json;
+{
+}
+< 201
+< Content-Type: application/json;
+{
+}
+
+admin can invite to this group...
+POST /api/groups/invite/:id
+> Accept: application/json
+> Content-Type: application/json;
+{
+    "username":"test user"
+}
+< 201
+< Content-Type: application/json;
+{
+    "success":"User has been invited to group!"
+}
+
+admin can ban the user from this group...
+POST /api/groups/ban/:id
+> Accept: application/json
+> Content-Type: application/json;
+{
+    "username":"test user"
+}
+< 201
+< Content-Type: application/json;
+{
+    "success":"User has been banned from this group!"
+}
+
+-- kabam plugin error logger --
+
+get error logs by user
+GET /api/errors/:username
+< 201
+< Content-Type: application/json;
+{
+  startTime: Wed Aug 21 2013 01:52:34 GMT+0400 (MSK),
+  duration: 49, //request duration in ms
+  statusCode: 200,
+  method: 'GET',
+  ip: '127.0.0.1',
+  uri: '/',
+  username:'johndoe', //if user is authorized, his/her username is put here
+  email:'email' //if user is authorized his/her email is put here
+}
+
+-- kabam-plugin-gridfs --
+
+Returns file if path_to_a_file exists and is a file
+GET /files/<path_to_a_file>
+< 201
+< Content-Type: application/json;
+{
+  _id: '5f7a891f4f57ec84375a6a97',
+  filename: '/some/path/to/a/file.txt/test.txt',
+  contentType: 'text/plain',
+  length: 11,
+  chunkSize: 262144,
+  aliases: null,
+  metadata: {
+    dirId: '8c4e17676bebe10c48321998',
+    tags: [ 'some', 'path', 'to', 'a', 'file.txt', 'test.txt' ]
+  },
+  md5: '0956d2fbd5d5c29844a4d21ed2f76e0c'
+}
+
+Returns file if path_to_a_folder exists and is a folder
+GET /files/<path_to_a_folder>
+< 201
+< Content-Type: application/json;
+{
+    files: [{
+      _id: '5f7a891f4f57ec84375a6a97',
+      filename: '/some/path/to/a/file.txt/test.txt',
+      contentType: 'text/plain',
+      length: 11,
+      chunkSize: 262144,
+      aliases: null,
+      metadata: {
+        dirId: '8c4e17676bebe10c48321998',
+        tags: [ 'some', 'path', 'to', 'a', 'file.txt', 'test.txt' ]
+      },
+      md5: '0956d2fbd5d5c29844a4d21ed2f76e0c'
+    }, {
+      _id: '46496fbb384e39ddfbabcd05',
+      filename: '/some/path/to/a/file.txt/Lenna.png',
+      contentType: 'image/png',
+      length: 473831,
+      chunkSize: 262144,
+      aliases: null,
+      metadata: {
+        dirId: '8c4e17676bebe10c48321998',
+        tags: [ 'some', 'path', 'to', 'a', 'file.txt', 'Lenna.png' ]
+      },
+      md5: '814a0034f5549e957ee61360d87457e5'
+    }],
+    folders: []
+}
+
+-- kabam-plugin-menu --
+Menu generator from menu.json for basic html or spa frontends
+GET /api/menus
+< 201
+< Content-Type: application/json;
+{
+  [
+      { name: 'MenuItem1', help: 'MenuItem1 help', 'url':'#menuItem' },
+      { name: 'MenuItem1', help: 'MenuItem1 help', 'url':'#menuItem' },
+      { name: 'MenuItem1', help: 'MenuItem1 help', 'url':'#menuItem' },
+      { name: 'MenuItem1', help: 'MenuItem1 help', 'url':'#menuItem' }
+  ]
+}
+
+-- kabam-plugin-analytics --
+Track http request
+GET /analytics/<some_sites>/hotpixel.png
+< 200
+< Content-Type: application/json;
+{
+  "hotPixelString":"..."
+}
